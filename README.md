@@ -1,9 +1,8 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
-
-<!-- Test Upload -->
 
 Things you may want to cover:
 
@@ -24,3 +23,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# QuickStarter
+a/A May 2020 Cohort Fullstack Project (Kickstarter clone)
+>>>>>>> 6dd1e486e7502c4785e457d21d3c559f5eb7e71f
