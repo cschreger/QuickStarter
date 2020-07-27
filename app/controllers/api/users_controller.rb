@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
@@ -7,7 +7,7 @@ class UsersController < ApplicationController
             login!(@user)
             render `api/users/#{@user.id}`
         else
-            render json: ["Invalid!"], status: 422
+            render json: @user.errors.full_messages, status: 422
         end
     end
     
