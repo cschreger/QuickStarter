@@ -1,5 +1,5 @@
 {
-  "name": "Quickstarter",
+  "name": "quickstarter",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.10.5",
