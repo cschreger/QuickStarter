@@ -18,8 +18,8 @@ const receiveErrors = errors => ({
     errors 
 })
 
-export const log_in = user => dispatch => (
-    SessionAPIUtil.login(user)
+export const log_in = formUser => dispatch => (
+    SessionAPIUtil.login(formUser)
         .then(user => dispatch(receiveCurrentUser(user)))
 );
 
@@ -28,8 +28,8 @@ export const log_out = () => dispatch => (
         .then(user => dispatch(logoutCurrentUser(user)))
 );
 
-export const sign_up = user => dispatch => (
-    SessionAPIUtil.signup(user)
+export const sign_up = fomrUser => dispatch => (
+    SessionAPIUtil.signup(formUser)
         .then(user => dispatch(receiveCurrentUser(user)))
 );
 
