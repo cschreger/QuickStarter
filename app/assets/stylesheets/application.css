@@ -18,7 +18,7 @@
 
 @font-face {
     font-family: logo;
-    src: url('Frankfurter_Std_Regular.otf') format('truetype');
+    src: font-url('Frankfurter_Std_Regular.otf') format('truetype');
 }
 
 
