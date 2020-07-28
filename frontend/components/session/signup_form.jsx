@@ -26,11 +26,12 @@ class SignupForm extends React.Component {
     render() {
         return (
             <div className="signup-form-container">
-=                <form onSubmit={this.handleSubmit} className="signup-form">
+                <form onSubmit={this.handleSubmit} className="signup-form">
+                    <div className='signup-window'>
                     <div className="switch-to-login">Have an account? {this.props.navLink}</div>
-                    <h2 className="sign-up-header">Sign Up</h2>
+                    <h2 className="signup-header">Sign Up</h2>
                 
-                        <input
+                        <input className='signup-form-field'
                             type="text"
                             placeholder="Name"
                             value={this.state.name}
@@ -38,21 +39,24 @@ class SignupForm extends React.Component {
                         />
            
 
-                        <input
+                        <input className='signup-form-field'
                             type="text"
                             placeholder="Email"
                             value={this.state.email}
                             onChange={this.handleInput('email')}
                         />
 
-                        <input
+                        <input className='signup-form-field'
                             type="password"
                             placeholder="Password"
                             value={this.state.password}
                             onChange={this.handleInput('password')}
                         />
 
-                    <button>{this.props.formType}</button>
+                    <button className="signup-button">
+                        {this.props.formType}
+                    </button>
+                    </div>
                 </form>
             </div>
         );

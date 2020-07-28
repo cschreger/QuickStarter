@@ -10,7 +10,8 @@ class App extends React.Component {
     render() {
 
         const navBar = (
-            <nav className="top-nav-bar">
+        <div className='top-nav-bar'>
+            <nav className="top-nav-bar-left">
                 <div className="nav-bar-link">
                     <Link to={'/explore'}>Explore</Link>
                 </div>
@@ -18,11 +19,15 @@ class App extends React.Component {
                 <div className="nav-bar-link">
                     <Link to={'/start'}>Start a project</Link>
                 </div>
+            </nav>
 
+            <nav className="top-nav-bar-center">
                 <div className="main-logo">
                     <Link to={'/'}>QuickStarter</Link>
                 </div>
+            </nav>
 
+            <nav className="top-nav-bar-right">
                 <div className="search">
                     {/* What goes here? */}
                 </div>
@@ -30,13 +35,14 @@ class App extends React.Component {
                 <div className="log-in">
                     <Link to={'/login'}>Log in</Link>
                     {/* <a className="nav-bar-link" href="/login">Log in</a> */}
-                </div>
-                    
+                </div> 
             </nav>
+
+        </div>
         )
         return (
         <div>
-            <h1>QuickStarter</h1>
+            {navBar}
             {/* <Route path="/" component={Home} /> */}
             <Route path="/signup" component={SignupFormContainer} />
             <Route path="/login" component={LoginFormContainer} />
