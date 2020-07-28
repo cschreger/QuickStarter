@@ -18,7 +18,7 @@
 
 @font-face {
     font-family: logo;
-    src: font-url('Frankfurter_Std_Regular.otf') format('truetype');
+    src: url('Frankfurter_Std_Regular.otf') format('truetype');
 }
 
 
@@ -75,7 +75,19 @@ div > .login-form, div > .signup-form {
     background-color: #ffffff;
 }
 
-.login-form-field, .signup-form-field {
+.signup-form-field {
+    width: 83%;
+    height: 30px;
+    margin: 5px;
+    /* border-radius: 2px; */
+    margin-left: 30px;
+    border-color: #DCDEDD;
+    border: .5px solid #DCDEDD;
+    margin: 15px;
+    margin-left: 30px;
+}
+
+.login-form-field {
     width: 83%;
     height: 30px;
     margin: 5px;
@@ -84,6 +96,7 @@ div > .login-form, div > .signup-form {
     border-color: #DCDEDD;
     border: .5px solid #DCDEDD;
 }
+
 
 /* .login-form-field.text, .signup-form-field.text {
     color: #DCDEDD;
