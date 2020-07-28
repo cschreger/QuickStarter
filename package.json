@@ -6,11 +6,14 @@
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
+    "lodash.merge": "^4.6.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
     "webpack": "^4.44.0",
     "webpack-cli": "^3.3.12"
   },
@@ -38,7 +41,7 @@
   },
   "homepage": "https://github.com/cschreger/QuickStarter#readme",
   "engines": {
-    "node": "12.5.0",
-    "npm": "6.9.0"
+    "node": "10.13.0",
+    "npm": "6.4.1"
   }
 }
