@@ -20,6 +20,7 @@ class LoginForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        debugger
         this.props.logIn(this.state).then(() => this.props.history.push("/"))
     }
 
@@ -33,12 +34,15 @@ class LoginForm extends React.Component {
 
     demoLogin(e){
         e.preventDefault();
-
+        debugger
         this.setState({
             email: "demologin@gmail.com",
             password:"hunter12"
         }, () => this.props.logIn(Object.assign({}, this.state))
-        .then(() => this.props.history.push('/')))
+        .then(() => {
+            debugger
+            this.props.history.push('/')
+        }   ))
     }
 
 

@@ -14,15 +14,12 @@ const Modal = (modal, closeModal) => {
         case 'navBarDropdown':
             component = <NavBarDropdown closeModal={closeModal} />;
             break;
-        case 'signup':
-            component = <SignupFormContainer />;
-            break;
         default:
             return null;
     }
 
     return (
-        <div className="modal-backround" onClick={closeModal}>
+        <div className="modal-background" onClick={closeModal}>
             <div className="modal-child" onClick={e => e.stopPropagation()}>
             {component}
             </div>

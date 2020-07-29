@@ -1,15 +1,25 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { render } from 'react-dom';
 
 class Greeting extends React.Component {
     constructor(props) {
         super(props);
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        debugger
+        this.props.logout().then(this.props.closeModal)
+        // this.props.history.push('/');
     }
 
 render() {
+    debugger
     if (this.props.currentUser) {
         return (
+            <>
             <div className="dropdown-message">
                 <input className="dropdown-input" 
                 type="submit" 
@@ -17,10 +27,12 @@ render() {
                 onClick={() => this.props.openModal('navBarDropdown')}
                 />
             </div>
+            <button onClick={this.handleSubmit}>Log Out!</button>
+            </>
         )
     } else {
         return (
-            <div className="greeting">
+            <div className="dropdown-links">
                 <Link to="/login">Log in</Link>
             </div>
         )

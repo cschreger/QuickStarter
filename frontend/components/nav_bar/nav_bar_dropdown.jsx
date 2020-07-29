@@ -17,13 +17,13 @@ class NavBarDropdown extends React.Component {
     render() {
         return(
             <div className="modal-dropdown">
-                <ul>
+                <div>
                     <input className="modal-logout" 
                     type="submit"
-                    value="Log out"
+                    value="Log out!"
                     onClick={this.handleSubmit}
                     />
-                </ul>
+                </div>
             </div>
         )
     }
