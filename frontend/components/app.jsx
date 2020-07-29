@@ -3,6 +3,8 @@ import {Route, Link} from 'react-router-dom';
 import SignupFormContainer from '../components/session/signup_form_container';
 import LoginFormContainer from '../components/session/login_form_container';
 import {AuthRoute} from '../util/route_util';
+import GreetingContainer from '../components/session/greeting_container';
+import Modal from './modal/modal';
 
 // const App = () => (
 class App extends React.Component {
@@ -29,11 +31,12 @@ class App extends React.Component {
 
             <nav className="top-nav-bar-right">
                 <div className="search">
-                    {/* What goes here? */}
+                    <GreetingContainer />
                 </div>
 
                 <div className="log-in">
-                    <Link to={'/login'}>Log in</Link>
+                    <Modal />
+                    {/* <Link to={'/login'}>Log in</Link> */}
                     {/* <a className="nav-bar-link" href="/login">Log in</a> */}
                 </div> 
             </nav>

@@ -37,7 +37,8 @@ class LoginForm extends React.Component {
         this.setState({
             email: "demologin@gmail.com",
             password:"hunter12"
-        }, () => this.props.logIn(Object.assign({}, this.state)))
+        }, () => this.props.logIn(Object.assign({}, this.state))
+        .then(() => this.props.history.push('/')))
     }
 
 
