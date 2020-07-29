@@ -20,8 +20,17 @@ class SignupForm extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         this.props.signUp(Object.assign({}, this.state))
+            .then(() => this.props.history.push("/"))
+
     }
 
+    renderErrors() {
+        return (
+            <ul>
+                {Object.values(this.props.errors)}
+            </ul>
+        );
+    }
 
     render() {
         return (
@@ -29,8 +38,9 @@ class SignupForm extends React.Component {
                 <form onSubmit={this.handleSubmit} className="signup-form">
                     <div className='signup-window'>
                     <div className="switch-to-login">Have an account? {this.props.navLink}</div>
-                    <h2 className="signup-header">Sign Up</h2>
-                
+                    <h3 className="signup-header">Sign Up</h3>
+                    <div className="signup-errors">{this.renderErrors()}</div>
+
                         <input className='signup-form-field'
                             type="text"
                             placeholder="Name"

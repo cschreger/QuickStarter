@@ -8,9 +8,9 @@ class Api::SessionsController < ApplicationController
 
         if @user
             login!(@user)
-            render 'root'
+            render 'api/users/show.json.jbuilder'
         else
-            render json: ["Invalid name/password combination"], status: 401
+            render json: ["Invalid email/password combination"], status: 401
         end
     end
 
@@ -20,7 +20,7 @@ class Api::SessionsController < ApplicationController
 
         if @user
             logout!
-            render json: {}
+            render json: {}, status: 200
         else
             render json: ["Nobody is signed in!"], status: 404
         end

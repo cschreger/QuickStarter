@@ -44,8 +44,8 @@ class App extends React.Component {
         <div>
             {navBar}
             {/* <Route path="/" component={Home} /> */}
-            <Route path="/signup" component={SignupFormContainer} />
-            <Route path="/login" component={LoginFormContainer} />
+            <AuthRoute path="/signup" component={SignupFormContainer} />
+            <AuthRoute path="/login" component={LoginFormContainer} />
         </div>
         )
     }
