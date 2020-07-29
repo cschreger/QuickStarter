@@ -26,5 +26,5 @@ export const fetchProjects = () => (
 
 export const fetchProject = (projectId) => (
     ProjectUtil.fetchProject(projectId)
-        .then(project => dispatch(receiveProject(project));
-)
+        .then(project => dispatch(receiveProject(project)))
+);
