@@ -31,6 +31,10 @@ class LoginForm extends React.Component {
         );
     }
 
+    componentWillUnmount() {
+        this.props.resetErrors();
+    }
+
     demoLogin(e){
         e.preventDefault();
         // debugger
@@ -65,7 +69,8 @@ class LoginForm extends React.Component {
                             onChange={this.handleInput('password')}
                         />
                     <button className = "login-button" 
-                            onSubmit={this.handleSubmit}>
+                            // onSubmit={this.handleSubmit}
+                            >
                             {this.props.formType}
                     </button>
 
