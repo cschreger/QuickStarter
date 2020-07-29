@@ -10,13 +10,11 @@ class Greeting extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
         this.props.logout().then(this.props.closeModal)
         // this.props.history.push('/');
     }
 
 render() {
-    debugger
     if (this.props.currentUser) {
         return (
             <>
