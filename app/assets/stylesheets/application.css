@@ -343,3 +343,77 @@ a.visited{
     color:blue;
     text-decoration: underline;
 }
+
+
+/* Project Start */
+
+.project-form-page {
+    display: block;
+    justify-content: center;
+    border-top: 1px solid #f0f0f0
+
+}
+
+.project-create-form-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 100px;
+
+}
+
+.project-create-form {
+    margin: auto;
+    width: 600px;
+}
+
+.project-create-form > h2 {
+    text-align: center;
+    font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: #000000;
+}
+
+.project-create-form > h4 {
+    text-align: center;
+    font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #00000099;
+    padding-bottom: 10px;
+    
+}
+
+.category-dropdown {
+    text-align: left;
+    color: #656969;
+    font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.17);
+    padding: 15px 21px;
+    margin-bottom: 80px;
+}
+
+.category-dropdown:hover {
+    border: 1px solid #282828
+}
+
+.button-container {
+    border-top: 0.5px solid #DCDEDD;
+    display: flex;
+    justify-content: space-between;
+}
+
+.next-button {
+    margin-top: 20px;
+}
+
+.nice-message {
+    margin-top: 30px;
+    color: #656969;
+    font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}

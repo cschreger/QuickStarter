@@ -24,7 +24,22 @@ export const fetchProjects = () => (
         .then(projects => dispatch(receiveAllProjects(projects)))
 );
 
-export const fetchProject = (projectId) => (
+export const fetchProject = projectId => (
     ProjectUtil.fetchProject(projectId)
         .then(project => dispatch(receiveProject(project)))
+);
+
+export const createProject = project => (
+    ProjectUtil.createProject(project)
+        .then(project => dispatch(receiveProject(project)))
+);
+
+export const updateProject = project => (
+    ProjectUtil.updateProject(project)
+        .then(project => dispatch(receiveProject(project)))
+);
+
+export const deleteProject = projectId => (
+    ProjectUtil.deleteProject(projectId)
+        .then(() => dispatch(removeProject(projectId)))
 );

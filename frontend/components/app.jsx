@@ -2,11 +2,12 @@ import React from 'react';
 import {Route, Link} from 'react-router-dom';
 import SignupFormContainer from '../components/session/signup_form_container';
 import LoginFormContainer from '../components/session/login_form_container';
-import {AuthRoute} from '../util/route_util';
+import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import GreetingContainer from '../components/session/greeting_container';
 import Modal from './modal/modal';
 import greeting_container from '../components/session/greeting_container';
 import Greeting from './session/greeting';
+import ProjectFormContainer from '../components/projects/project_form_container';
 
 // const App = () => (
 class App extends React.Component {
@@ -54,6 +55,7 @@ class App extends React.Component {
             {/* <Route path="/" component={GreetingContainer} /> */}
             <AuthRoute path="/signup" component={SignupFormContainer} />
             <AuthRoute path="/login" component={LoginFormContainer} />
+            <ProtectedRoute path="/start" component={ProjectFormContainer}/>
         </div>
         )
     }
