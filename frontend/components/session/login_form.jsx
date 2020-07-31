@@ -37,7 +37,6 @@ class LoginForm extends React.Component {
 
     demoLogin(e){
         e.preventDefault();
-        // debugger
         this.setState({
             email: "demologin@gmail.com",
             password:"hunter12"
