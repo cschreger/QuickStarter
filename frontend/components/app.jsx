@@ -8,6 +8,7 @@ import Modal from './modal/modal';
 import greeting_container from '../components/session/greeting_container';
 import Greeting from './session/greeting';
 import ProjectFormContainer from '../components/projects/project_form_container';
+import ProjectShowContainer from '../components/projects/project_show_container';
 
 // const App = () => (
 class App extends React.Component {
@@ -20,7 +21,7 @@ class App extends React.Component {
         <div className='top-nav-bar'>
             <nav className="top-nav-bar-left">
                 <div className="nav-bar-link">
-                    <Link to={'/explore'}>Explore</Link>
+                    <Link id="explore" to={'/explore'}>Explore</Link>
                 </div>
 
                 <div className="nav-bar-link">
@@ -49,13 +50,37 @@ class App extends React.Component {
         </div>
             </div>
         )
+
+
+        const footer = (
+            <div className="footer-container">
+                <div className="footer-categories">
+                    <ul className="languages">Languages/Frameworks
+                        <li id="top-lister">Ruby/Ruby on Rails</li>
+                        <li>Javascript</li>
+                        <li>HTML/CSS</li>
+                        <li>React/Redux</li>
+                        <li>SQL</li>
+                    </ul>
+
+                    <ul className="resources">Resources
+                        <li id="top-lister"><a href="https://github.com/cschreger">Github</a></li>
+                        <li><a href="https://www.linkedin.com/in/cade-schreger-01048aab/">LinkedIn</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+        )
+
         return (
         <div>
             {navBar}
             {/* <Route path="/" component={GreetingContainer} /> */}
             <AuthRoute path="/signup" component={SignupFormContainer} />
             <AuthRoute path="/login" component={LoginFormContainer} />
-            <ProtectedRoute path="/start" component={ProjectFormContainer}/>
+            <Route path="/projects/:projectId" component={ProjectShowContainer} />
+            <ProtectedRoute path="/start" component={ProjectFormContainer} />
+            {footer}
         </div>
         )
     }

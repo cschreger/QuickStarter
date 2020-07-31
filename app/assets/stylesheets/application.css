@@ -29,18 +29,29 @@
 
 .top-nav-bar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 60px;
     width: 100%;
+    border-bottom: 0.5px solid lightgray;
 }
 
 .top-nav-bar-left {
     text-align: left;
+    margin-left: 25px;
+    display: flex;
+}
+
+.top-nav-bar-center {
+    padding-right: 90px;
 }
 
 .top-nav-bar-right {
     margin-right: 35px;
+}
+
+#explore {
+    margin-right: 17px;
 }
 
 .nav-bar-link {
@@ -295,6 +306,7 @@ a.visited{
 }
 
 .dropdown-input{
+    display:none;
     -webkit-appearance: none;
     font-size: 14px;
     font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -431,8 +443,7 @@ a.visited{
     font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
     font-size: 14px;
-    /* border: 5px solid red; */
-    /* vertical-align: middle; */
+    margin-top: 12px;
 }
 
 .fa-long-arrow-alt-left:hover {
@@ -442,9 +453,11 @@ a.visited{
     /* vertical-align: middle; */
 }
 
-/* .fa-long-arrow-alt-left p {
-
-} */
+.fa-long-arrow-alt-left span {
+    margin-left: 7px;
+    font-size: 15px;
+    font-weight: 200;
+}
 
 
 .category-dropdown:hover, .location-dropdown:hover {
@@ -470,7 +483,7 @@ a.visited{
     z-index: 1;
     overflow-y: scroll;
     background-color: white;
-    bottom: 100px;
+    bottom: 150px;
 }
 
 .location-list-container.open {
@@ -482,7 +495,7 @@ a.visited{
     z-index: 1;
     overflow-y: scroll;
     background-color: white;
-    bottom: 100px;
+    bottom: 150px;
 }
 
 
@@ -535,7 +548,7 @@ a.visited{
     flex-direction: column;
 }
 
-.project-categories li {
+.project-categories li, .project-locations li {
     list-style: none;
     padding: 10px;
     font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -547,7 +560,7 @@ a.visited{
     cursor: pointer;
 }
 
-.project-categories li:hover {
+.project-categories li:hover, .location-categories li:hover {
     background-color: #dadada;
     opacity: 0.8;
 }
@@ -588,3 +601,127 @@ a.visited{
     font-size: 14px;
     padding: 12px;
 } */
+
+.previous-container {
+    display: flex;
+    align-items: center;
+} 
+
+label {
+    font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+
+.additional-info-container {
+    display: flex;
+}
+
+/* .mainest-content {
+    min-height: calc(100vh - 50px);
+} */
+
+/* .footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+} */
+
+.footer-categories {
+    display: flex;
+    height: 100px;
+}
+
+.languages, .resources {
+    padding: 40px;
+    font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin: auto
+
+}
+
+.languages > li, .resources > li {
+    list-style: none;
+    font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 6px;
+    text-decoration-line: none;
+}
+
+.resources > li > a:hover {
+    cursor: pointer;
+    color: darkblue;
+}
+
+#top-lister {
+    padding-top: 12px;
+}
+
+.project-show-main {
+    background-color: #f7fffa;
+}
+
+.project-show-main-content {
+    display: flex;
+    height: 700px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.project-show-main h2 {
+    font-family:"Maison Neue Book", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
+    font-weight: 500;
+    margin: 0;
+    margin-top: 35px;
+    margin-bottom: 12px;
+
+}
+
+.project-show-main h4 {
+    font-family:"Maison Neue Book", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
+    font-weight: 200;
+    margin: 0;
+
+}
+
+/* .project-show-media-details-container {
+    display: flex;
+} */
+
+.project-title-description-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.project-show-media {
+    border: 1px solid red;
+    position: relative;
+    height: 460px;
+    width: 820px;
+    left: -250px;
+}
+
+.project-show-media-info-footer {
+    position: relative;
+    bottom: 200px;
+    left: -600px;
+}
+
+.project-show-details {
+    position: relative;
+    top: -460px;
+    left: 380px;
+}
+
+.project-show-details > div {
+    padding: 10px
+}

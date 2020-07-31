@@ -7,7 +7,7 @@ class ProjectForm extends React.Component {
         this.state = {
             title: '',
             description: '',
-            goalFunding: 0,
+            goalFunding: "0",
             categoryId: 0,
             locationId: 0,
             campaignEndDate: "",
@@ -15,7 +15,8 @@ class ProjectForm extends React.Component {
             categoryName: "Select your category",
             pageIdx: 0,
             buttonIdx: 0,
-            locationName: "Select your region"
+            locationName: "Select your region",
+            // checks:
         }
 
         this.handleDropdown = this.handleDropdown.bind(this);
@@ -34,12 +35,21 @@ class ProjectForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const projectData = new FormData();
+        let projectData = new FormData();
 
+        projectData.append('project[title]', this.state.title)
+        projectData.append('project[description]', this.state.description)
+        projectData.append('project[category_id]', this.state.categoryId)
+        projectData.append('project[location_id]', this.state.locationId)
+        projectData.append('project[goal_funding]', this.state.goalFunding)
+        projectData.append('project[campaign_end_date]', this.state.campaignEndDate)
+ 
         if (e.target.id === "next" && this.state.buttonIdx === 2) {
-            this.props.createForm(formData)
-                // .then(dispatch => )
-        }
+            this.props.createProject(projectData)
+                .then(() => (
+                    this.props.history.push(`/projects`)
+                ))
+        }    
     }
 
 
@@ -85,28 +95,20 @@ class ProjectForm extends React.Component {
                 pageIdx: this.state.pageIdx -= 1
             })
         }
-        console.log(`Page idx: ${this.state.pageIdx}`)
-        console.log(`Button idx: ${this.state.buttonIdx}`)
     }
 
+    // handleCheckbox(e) {
+    //     e.preventDefault()
+    //     if (e.target.id === "checkbox") {
+    //         this.setState({
+    //             checks: this.state.checks += 1
+    //         })
+    // }
 
     render () {
         let {title, description, goalFunding, categoryId, locationId, 
             campaignEndDate, open, categoryName, pageIdx, locationName, 
             buttonIdx} = this.state;
-
-        let buttonNotReady, messageStatus;
-
-        if (pageIdx === 0 && categoryId) {
-            buttonNotReady === false;
-        } else if ((pageIdx === 1) && (title && description)) {
-            buttonNotReady === false;
-        } else if ((pageIdx === 2) && (locationId && goalFunding && campaignEndDate)){
-            buttonNotReady === false;
-        } else {
-            buttonNotReady === true;9
-        }
-         
 
         
     return (
@@ -150,80 +152,80 @@ class ProjectForm extends React.Component {
                         </ul>
                     </div>
 
-            <div className="button-container">
-            <p className="nice-message">Nice to see you.</p>
-                <button id="next" 
-                    className={`next-button ${categoryId ? "choice" : " "}`}
-                    onClick={this.handlePageChange}
-                >
-                    Next: Project idea
-                </button>
-            </div>
-
-            <div className="project-footer-info">
-                    To create a project, you're required to provide your 
-                    location, age, national ID, banking and tax information, 
-                    email, and mailing address. This information is necessary 
-                    to prevent fraud, comply with the law, and — if your project 
-                    is successful — to deliver funds. Please note: after launch, 
-                    your ability to edit, hide, or delete a project is limited.
-            </div>
-            </form>
-            </div>
-
-
-
-            <form className={`project-create-form ${pageIdx === 1 ? "" : "hidden"}`}>
-                <h2>Describe what you'll be creating.</h2>
-                <h4>And don't worry, you can edit this later, too.</h4>
-
-                <div className="project-title-description-container">
-                    <label>Title
-                        <input className="project-title"
-                        type="text"
-                        value={title}
-                        placeholder="My Amazing Project"
-                        onChange={this.handleInput('title')}
-                        />
-                    </label>
-
-                    <label>Description
-                        <input className="project-description"
-                        type="text"
-                        value={description}
-                        placeholder="A movie that will change the idea of what it means to be a movie."
-                        onChange={this.handleInput('description')}
-                        />
-                    </label>
-                </div>
-
                 <div className="button-container">
-                    <div className="previous-container">
-                    <i 
-                    id="previous"
-                    className="fas fa-long-arrow-alt-left"
-                    onClick={this.handlePageChange}
-                    >
-                        <p id="previous">Category</p>
-                    </i> 
-                    </div>         
-                              
+                <p className="nice-message">Nice to see you.</p>
                     <button id="next" 
-                    className={`next-button ${title && description ? "choice" : " "}`}
-                    onClick={this.handlePageChange}
+                        className={`next-button ${categoryId ? "choice" : " "}`}
+                        onClick={this.handlePageChange}
                     >
-                        Next: Location/Details
+                        Next: Project idea
                     </button>
                 </div>
-
+        
                 <div className="project-footer-info">
-                    To create a project, you're required to provide your
-                    location, age, national ID, banking and tax information,
-                    email, and mailing address. This information is necessary
-                    to prevent fraud, comply with the law, and — if your project
-                    is successful — to deliver funds. Please note: after launch,
-                    your ability to edit, hide, or delete a project is limited.
+                        To create a project, you're required to provide your 
+                        location, age, national ID, banking and tax information, 
+                        email, and mailing address. This information is necessary 
+                        to prevent fraud, comply with the law, and — if your project 
+                        is successful — to deliver funds. Please note: after launch, 
+                        your ability to edit, hide, or delete a project is limited.
                 </div>
+                </form>
+            </div>
+        
+        
+        
+                <form className={`project-create-form ${pageIdx === 1 ? "" : "hidden"}`}>
+                    <h2>Describe what you'll be creating.</h2>
+                    <h4>And don't worry, you can edit this later, too.</h4>
+        
+                    <div className="project-title-description-container">
+                        <label>Title
+                            <input className="project-title"
+                            type="text"
+                            value={title}
+                            placeholder="My Amazing Project"
+                            onChange={this.handleInput('title')}
+                            />
+                        </label>
+        
+                        <label>Description
+                            <input className="project-description"
+                            type="text"
+                            value={description}
+                            placeholder="A movie that will change the idea of what it means to be a movie."
+                            onChange={this.handleInput('description')}
+                            />
+                        </label>
+                    </div>
+        
+                    <div className="button-container">
+                        <div className="previous-container">
+                        <i 
+                        id="previous"
+                        className="fas fa-long-arrow-alt-left"
+                        onClick={this.handlePageChange}
+                        >
+                            <span id="previous">Category</span>
+                        </i> 
+                        </div>         
+                                  
+                        <button id="next" 
+                        className={`next-button ${title && description ? "choice" : " "}`}
+                        onClick={this.handlePageChange}
+                        >
+                            Next: Location/Details
+                        </button>
+                    </div>
+        
+                    <div className="project-footer-info">
+                        To create a project, you're required to provide your
+                        location, age, national ID, banking and tax information,
+                        email, and mailing address. This information is necessary
+                        to prevent fraud, comply with the law, and — if your project
+                        is successful — to deliver funds. Please note: after launch,
+                        your ability to edit, hide, or delete a project is limited.
+                    </div>
             </form>
 
 
@@ -232,13 +234,13 @@ class ProjectForm extends React.Component {
                 <h2>Finally, let's get a few details.</h2>
                 <h4>Tell us where you're based and confirm a few other details before we confirm.</h4>
 
-                <div className={`location-dropdown ${open ? "open" : ""}`}
+                <div className={`location-dropdown ${open && pageIdx === 2 ? "open" : ""}`}
                     onClick={this.handleLocationDropdown}>
                     {locationName}
                     <i className="fas fa-caret-down"></i>
                 </div>
 
-                <div className={`location-list-container ${open ? "open" : ""}`} >
+                <div className={`location-list-container ${open && pageIdx === 2 ? "open" : ""}`} >
 
                     <ul className="project-locations">
                         <li value="1" onClick={this.handleLocationDropdown}>United States/North America</li>
@@ -247,10 +249,34 @@ class ProjectForm extends React.Component {
                         <li value="4" onClick={this.handleLocationDropdown}>Africa</li>
                         <li value="5" onClick={this.handleLocationDropdown}>Australia</li>
                         <li value="6" onClick={this.handleLocationDropdown}>South America</li>
-                        <li value="7" onClick={this.handleLocationDropdown}>Antarctic</li>
-                        <li value="8" onClick={this.handleLocationDropdown}>Food</li>
+                        <li value="7" onClick={this.handleLocationDropdown}>Antarctica</li>
                     </ul>
                 </div>
+
+                <div className='additional-info-container'>
+                    <label>Campaign End Date
+                    <input className= 'campaign-end-date'
+                        type="date"
+                        value={campaignEndDate}
+                        onChange={this.handleInput('campaignEndDate')}
+                    /></label>
+
+                    <label>Goal Funding
+                    <input className='goal-funding'
+                        type="text"
+                        placeholder="USD"
+                        value={goalFunding}
+                        onChange={this.handleInput('goalFunding')}
+                    /></label>
+    
+                </div>
+
+                <div className="eligibility-container">
+                    {/* <li>
+                    <input type="checkbox">I am at least 18 years old.</input>
+                    </li>; */}
+                </div>
+
 
 
                 <div className="button-container">
@@ -260,12 +286,12 @@ class ProjectForm extends React.Component {
                             className="fas fa-long-arrow-alt-left"
                             onClick={this.handlePageChange}
                         >
-                            <p id="previous">Project Idea</p>
+                            <span id="previous">Project Idea</span>
                         </i>
                     </div>    
 
                     <button id="next" 
-                    className="next-button"
+                    className={`next-button ${locationId && campaignEndDate && goalFunding ? "choice" : " "}`}
                     onClick={this.handleSubmit}
                     >Create Project</button>
                 </div>
@@ -279,7 +305,7 @@ class ProjectForm extends React.Component {
                     your ability to edit, hide, or delete a project is limited.
                 </div>
             </form>
-            </div >
+        </div >
 
      
 

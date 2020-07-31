@@ -1,4 +1,4 @@
-class ProjectsController < ApplicationController
+class Api::ProjectsController < ApplicationController
 
     before_action :ensure_logged_in
 
@@ -19,10 +19,10 @@ class ProjectsController < ApplicationController
     def create 
         @project = Project.new(project_params)
         @project.creator_id = current_user.id
-
         if @project.save
             render :show
         else
+
             render json: @project.errors.full_messages, status: 422
         end
     end
@@ -51,7 +51,7 @@ class ProjectsController < ApplicationController
 
     def project_params
         params.require(:project).permit(:title, :description, :goal_funding,
-        :categoty_id, :location_id, :campaign_end_date)
+        :category_id, :location_id, :campaign_end_date)
     end
 
             
