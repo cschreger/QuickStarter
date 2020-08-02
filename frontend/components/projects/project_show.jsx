@@ -56,7 +56,7 @@ class ProjectShow extends React.Component {
             
                 <div className='project-show-media-details-container'>
                     <div className='project-show-media'>
-                        {/* <img src={project.image}/> */}
+                        <img src={project.media}/>
                     </div>
                 </div>
             

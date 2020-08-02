@@ -477,25 +477,25 @@ a.visited{
 .category-list-container.open {
     display: block;
     border: 1px solid black;
-    position: absolute;
+    position: relative;
     height: 300px;
     width: 598px;
     z-index: 1;
     overflow-y: scroll;
     background-color: white;
-    bottom: 150px;
+    bottom: 70px;
 }
 
 .location-list-container.open {
     display: block;
     border: 1px solid black;
-    position: absolute;
+    position: relative;
     height: 300px;
     width: 598px;
     z-index: 1;
     overflow-y: scroll;
     background-color: white;
-    bottom: 150px;
+    bottom: 70px;
 }
 
 
@@ -503,6 +503,7 @@ a.visited{
 .button-container {
     border-top: 0.5px solid #DCDEDD;
     display: flex;
+    /* position: absolute; */
     justify-content: space-between;
     margin-bottom: 80px;
 }
@@ -587,7 +588,6 @@ a.visited{
     height: 80px;
     width: 600px;
     text-align: initial;
-    margin-bottom: 80px;
 }
 
 /* .next-button.clicked {
@@ -724,4 +724,18 @@ label {
 
 .project-show-details > div {
     padding: 10px
+}
+
+.campaign-end-date {
+    font-family: sans-serif;
+    border: 1px solid blueviolet;
+}
+
+.eligibility-container {
+    display: flex;
+    align-items: center;
+}
+
+.fa-check-circle {
+    color: limegreen
 }

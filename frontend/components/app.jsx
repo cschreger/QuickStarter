@@ -9,6 +9,7 @@ import greeting_container from '../components/session/greeting_container';
 import Greeting from './session/greeting';
 import ProjectFormContainer from '../components/projects/project_form_container';
 import ProjectShowContainer from '../components/projects/project_show_container';
+import ProjectMainPageContainer from '../components/projects/project_main_page_container'
 
 // const App = () => (
 class App extends React.Component {
@@ -17,7 +18,7 @@ class App extends React.Component {
 
         const navBar = (
         <div>
-            <Modal />
+            {/* <Modal /> */}
         <div className='top-nav-bar'>
             <nav className="top-nav-bar-left">
                 <div className="nav-bar-link">
@@ -48,8 +49,24 @@ class App extends React.Component {
                 {/* </div>  */}
             </nav>
         </div>
-            </div>
+        </div>
         )
+
+        // const categoryBar = (categories) => (
+            
+        //     <div className='categories-bar-container'>
+        //         <ul className="categories-list">
+        //             <li value="1">Arts</li>
+        //             <li value="2">Comics</li>
+        //             <li value="5">Design</li>
+        //             <li value="7">Film &amp; Video </li>
+        //             <li value="8">Food</li>
+        //             <li value="9">Games</li>
+        //             <li value="11">Music</li>
+        //             <li value="13">Publishing</li>
+        //         </ul>
+        //     </div>
+        // )
 
 
         const footer = (
@@ -75,7 +92,8 @@ class App extends React.Component {
         return (
         <div>
             {navBar}
-            {/* <Route path="/" component={GreetingContainer} /> */}
+            {/* {categoryBar} */}
+            <Route path="/" component={ProjectMainPageContainer} />
             <AuthRoute path="/signup" component={SignupFormContainer} />
             <AuthRoute path="/login" component={LoginFormContainer} />
             <Route path="/projects/:projectId" component={ProjectShowContainer} />

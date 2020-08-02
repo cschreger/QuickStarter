@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class ProjectIndex extends React.Component {
     constructor(props) {
@@ -9,7 +10,13 @@ class ProjectIndex extends React.Component {
         this.props.fetchProjects();
     }
 
-    render
+    render() {
+        return (
+            <div>
+
+            </div>
+        )
+    }
 
 }
 

@@ -16,13 +16,14 @@ class ProjectForm extends React.Component {
             pageIdx: 0,
             buttonIdx: 0,
             locationName: "Select your region",
-            // checks:
+            checks: 0
         }
 
         this.handleDropdown = this.handleDropdown.bind(this);
         this.handlePageChange = this.handlePageChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleLocationDropdown = this.handleLocationDropdown.bind(this);
+        this.handleCheckbox = this.handleCheckbox.bind(this);
     };
 
 
@@ -97,18 +98,27 @@ class ProjectForm extends React.Component {
         }
     }
 
-    // handleCheckbox(e) {
-    //     e.preventDefault()
-    //     if (e.target.id === "checkbox") {
-    //         this.setState({
-    //             checks: this.state.checks += 1
-    //         })
-    // }
+    handleCheckbox(e) {
+        e.preventDefault()
+        if (e.target.className === "fa-check-circle") {
+            this.setState({
+                checks: this.state.checks += 1
+            })
+        } else if (e.target.className === "fa-check-circle clicked") {
+            this.setState({
+                checks: this.state.checks -=1
+            })
+        }
+    }
+    // set it up so that clicking the icon adds 1 to state and then when that 
+    // state is 1 the class changes and then if the target is then THAT classname 
+    // a click on it lowers back down to 0
+
 
     render () {
         let {title, description, goalFunding, categoryId, locationId, 
             campaignEndDate, open, categoryName, pageIdx, locationName, 
-            buttonIdx} = this.state;
+            checks} = this.state;
 
         
     return (
@@ -272,9 +282,28 @@ class ProjectForm extends React.Component {
                 </div>
 
                 <div className="eligibility-container">
-                    {/* <li>
-                    <input type="checkbox">I am at least 18 years old.</input>
-                    </li>; */}
+                    <i className="fal fa-check-circle">I am at least 18 years old.</i>
+                    {/* <label> I am at least 18 years old.
+                        <input className={`fal fa-check-circle ${checks === 1 ? "checked" : ""}`}
+                        type="checkbox"/>
+                    </label>
+
+                    <label> I can verify an address and bank account.
+                        <input className={`fal fa-check-circle ${checks === 2 ? "checked" : ""}`}
+                        type="checkbox" />
+                    </label>
+
+                    <label> I can verify a government issued ID.
+                        <input className={`fal fa-check-circle ${checks === 3 ? "checked" : ""}`}
+                        type="checkbox" />
+                    </label>
+
+                    <label> I have a debit and/or credit card.
+                        <input className={`fal fa-check-circle ${checks === 4 ? "checked" : ""}`}
+                        type="checkbox"
+                        onClick={this.handleCheckbox} 
+                        />
+                    </label> */}
                 </div>
 
 
@@ -291,7 +320,7 @@ class ProjectForm extends React.Component {
                     </div>    
 
                     <button id="next" 
-                    className={`next-button ${locationId && campaignEndDate && goalFunding ? "choice" : " "}`}
+                    className={`next-button ${(locationId && campaignEndDate && goalFunding && (checks === 4)) ? "choice" : " "}`}
                     onClick={this.handleSubmit}
                     >Create Project</button>
                 </div>
