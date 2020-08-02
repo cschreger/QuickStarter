@@ -2,14 +2,13 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 class ProjectMainPage extends React.Component {
-    constructor(props){
-        super(props)
+    constructor(props) {
+        super(props);
     }
 
-    componentDidMount() {
+    componentWillMount() {
         debugger
         this.props.fetchProjects();
-        debugger
         console.log(this.props.projects);
     }
     

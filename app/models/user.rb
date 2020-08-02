@@ -9,6 +9,14 @@ class User < ApplicationRecord
     has_many :projects,
         foreign_key: :creator_id,
         class_name: 'Project'
+    
+    has_many :backings,
+        foreign_key: :backer_id,
+        class_name: "Backing"
+
+    has_many :backed_projects,
+        through: :backings,
+        source: :project
 
 
     def self.find_by_credentials(email, password)

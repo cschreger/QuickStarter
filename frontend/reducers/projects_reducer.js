@@ -12,7 +12,6 @@ const projectsReducer = (oldState = {}, action) => {
             debugger
             return merge({}, oldState, action.projects);
         case RECEIVE_PROJECT:
-            debugger
             return merge({}, oldState, {[action.project.id]: action.project});
         case REMOVE_PROJECT:
             let nextState = Object.assign({}, oldState);
