@@ -8,7 +8,7 @@ class Api::BackingsController < ApplicationController
 
     def create
         @backing= Backing.new(backing_params)
-
+        @backer_id = current_user.id
         if @backing.save
             render :show
         else
