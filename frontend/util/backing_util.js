@@ -1,6 +1,13 @@
-export const fetchBacking = (backingId) => {
+export const fetchBackings = (backings) => {
     return $.ajax({
         method: 'GET',
-        url: 'api/projects'
+        url: `api/backings`
+    })
+};
+
+export const createBacking = (backing) => {
+    return $.ajax({
+        method: 'POST',
+        url: `api/backings`
     })
 };

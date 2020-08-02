@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+import RewardShowContainer from '../../components/rewards/r'
 
 class ProjectShow extends React.Component {
     constructor(props) {
@@ -64,7 +66,9 @@ class ProjectShow extends React.Component {
                     <div className='pledge-amt'><h2>${funding}</h2></div>
                     <div className='backer-amt'><h2># of Backers</h2></div>
                     <div className='remaining-days-amt'><h2>Calc days to go</h2></div>
-                    <button className='back-button'>Back this project</button>
+                    <Link to={`/projects/${project.id}/rewards`}>
+                    <button className='backing-button'>Back this project</button>
+                    </Link>
                 </div>
         
                 <div className='project-show-media-info-footer'>
