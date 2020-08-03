@@ -1,11 +1,12 @@
-class Api:RewardsController < ApplicationController
+class Api::RewardsController < ApplicationController
 
     def index
-        @rewards = Rewards.find_by(project_id: params[:project_id])
+        @rewards = Reward.find_by(project_id: params[:project_id])
     end
 
     def create
         @reward = Reward.new(reward_params)
+        @reward.project_id = params[:project_id]
 
         if @reward.save
             render '/api/projects/show'

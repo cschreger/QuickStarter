@@ -8,14 +8,22 @@ class ProjectShow extends React.Component {
     }
 
 
-    componentWillMount() {
+    componentDidMount() {
         debugger
         this.props.fetchProject(this.props.match.params.projectId)
     }
 
-    render() {
-        const {project, creator, currentUser} = this.props;
+    componentWillUnmount() {
+        debugger
+    }
 
+    render () {
+        // if proj not defined - return null 
+        if (!this.props.project){
+            this.props.fetchProject(this.props.match.params.projectId)
+        }
+        
+        const {project, creator, currentUser} = this.props;
         const categories = {
             1: 'Arts',
             2: 'Comics',
@@ -44,9 +52,8 @@ class ProjectShow extends React.Component {
             7: "Antarctica"
         }
 
-        let funding = `Backed amt of $${project.goal_funding} goal`
-
         debugger
+        // let funding = `Backed amt of $${project.goal_funding} goal`
         return (
         <div className='project-show-main'>
 

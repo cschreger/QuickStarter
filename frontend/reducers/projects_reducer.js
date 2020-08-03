@@ -6,12 +6,12 @@ import merge from 'lodash/merge';
 
 const projectsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
-
     switch(action.type) {
         case RECEIVE_ALL_PROJECTS:
             debugger
             return merge({}, oldState, action.projects);
         case RECEIVE_PROJECT:
+            debugger
             return merge({}, oldState, {[action.project.id]: action.project});
         case REMOVE_PROJECT:
             let nextState = Object.assign({}, oldState);

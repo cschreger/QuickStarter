@@ -1,6 +1,6 @@
 class Api::ProjectsController < ApplicationController
 
-    before_action :ensure_logged_in
+    before_action :ensure_logged_in, only: [:create, :destroy, :update]
 
     def index
         @projects = Project.includes(:creator).all

@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+// import CategoryBar from '../components/category/category_bar'
+
 
 class ProjectMainPage extends React.Component {
     constructor(props) {
@@ -11,14 +13,20 @@ class ProjectMainPage extends React.Component {
         this.props.fetchProjects();
         console.log(this.props.projects);
     }
+
     
-    render() {
+    
+    render () {
         
-        const featuredProject = this.props.projects[1];
+        debugger
+        if (this.props.projects === {}) {
+            return <div></div>;
+        }
         const sidebarProjects = Object.values(this.props.projects).slice(13,16);
+        const featuredProject = this.props.projects[1];
         debugger
         return (
-        <div className="project-index-container">
+            <div className="project-index-container">
             <div className="featured-project-container">
                 <h4>FEATURED PROJECT</h4>
                 <Link to={'/projects'}>

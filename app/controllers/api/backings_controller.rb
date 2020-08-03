@@ -1,5 +1,6 @@
 class Api::BackingsController < ApplicationController
 
+
     def show
         @backing = Backing.find(params[:id])
         render :show
