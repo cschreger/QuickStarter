@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {fetchProject, updateProject, deleteProject} from '../../actions/project_actions';
 import ProjectShow from './project_show';
-import {createBacking} from '../../actions/backing_actions';
+// import {createBacking} from '../../actions/backing_actions'; should be in rewards show container?
 
 
 
@@ -17,7 +17,7 @@ const mdp = dispatch => ({
     fetchProject: projectId => dispatch(fetchProject(projectId)),
     updateProject: project => dispatch(updateProject(project)),
     deleteProject: projectId => dispatch(deleteProject(projectId)),
-    createBacking: backing => dispatch(createBacking(backing))
+    // createBacking: backing => dispatch(createBacking(backing))
 });
 
 export default connect(msp, mdp)(ProjectShow);

@@ -93,7 +93,7 @@ class App extends React.Component {
         <div>
             {navBar}
             {/* {categoryBar} */}
-            <Route path="/" component={ProjectMainPageContainer} />
+            <Route exact path="/" component={ProjectMainPageContainer} />
             <AuthRoute path="/signup" component={SignupFormContainer} />
             <AuthRoute path="/login" component={LoginFormContainer} />
             <Route path="/projects/:projectId" component={ProjectShowContainer} />

@@ -1,7 +1,7 @@
 import {RECEIVE_PROJECT_BACKINGS, RECEIVE_BACKING} from '../actions/backing_actions';
 import merge from 'lodash/merge'
 
-const backingReducer = (oldState = {}, action) => {
+const backingsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
 
     switch(action.type) {
@@ -14,4 +14,4 @@ const backingReducer = (oldState = {}, action) => {
     }
 }
 
-export default backingReducer;
+export default backingsReducer;

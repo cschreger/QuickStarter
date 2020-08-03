@@ -722,6 +722,17 @@ label {
     left: 380px;
 }
 
+.backing-button {
+    display: block;
+    background-color: #009e74;
+    width: 100%;
+    height: 50px;
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 2px 4px rgba(40,40,40,0.17);
+    font-family:"Maison Neue Book", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
+}
+
 .project-show-details > div {
     padding: 10px
 }

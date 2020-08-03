@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import RewardShowContainer from '../../components/rewards/r'
+// import RewardShowContainer from '../../components/rewards/r'
 
 class ProjectShow extends React.Component {
     constructor(props) {
@@ -78,7 +78,7 @@ class ProjectShow extends React.Component {
                     
             
             
-                
+            
             </div>
         </div>
 
