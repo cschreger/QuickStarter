@@ -8,7 +8,7 @@ class ProjectForm extends React.Component {
         this.state = {
             title: '',
             description: '',
-            goalFunding: "0",
+            goalFunding: "",
             categoryId: 0,
             locationId: 0,
             campaignEndDate: "",
@@ -17,7 +17,11 @@ class ProjectForm extends React.Component {
             pageIdx: 0,
             buttonIdx: 0,
             locationName: "Select your region",
-            checks: 0
+            checks: 0,
+            checkbox1click: false,
+            checkbox2click: false,
+            checkbox3click: false,
+            checkbox4click: false,
         }
 
         this.handleDropdown = this.handleDropdown.bind(this);
@@ -38,6 +42,7 @@ class ProjectForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        debugger
         let projectData = new FormData();
 
         projectData.append('project[title]', this.state.title)
@@ -50,18 +55,20 @@ class ProjectForm extends React.Component {
  
         if (e.target.id === "next" && this.state.buttonIdx === 2) {
             this.props.createProject(projectData)
-                .then(() => (
-                    this.props.history.push(`/projects/`)
-                ))
+                .then(action => {
+                    return this.props.history.push(`/projects/${action.project.id}/rewards`)
+                })
         }    
     }
 
+
     handleFile(e) {
+
         const reader = new FileReader();
         const file = e.currentTarget.files[0];
         reader.onloadend = () =>
             this.setState({ mediaUrl: reader.result, mediaFile: file });
-
+        debugger
         if (file) {
             reader.readAsDataURL(file);
         } else {
@@ -84,6 +91,7 @@ class ProjectForm extends React.Component {
             })
         }
     }
+
 
     handleLocationDropdown(e) {
         e.preventDefault();
@@ -115,18 +123,53 @@ class ProjectForm extends React.Component {
         }
     }
 
+
     handleCheckbox(e) {
         e.preventDefault()
-        if (e.target.className === "fa-check-circle") {
+        debugger
+        if  ((e.target.id === "check1") && (e.target.className === "fas fa-check-circle ")) {
             this.setState({
+                checkbox1click: true,
                 checks: this.state.checks += 1
             })
-        } else if (e.target.className === "fa-check-circle clicked") {
+        } else if ((e.target.id === "check1") && (e.target.className === "fas fa-check-circle clicked")) {
             this.setState({
+                checkbox1click: false,
                 checks: this.state.checks -=1
+        })
+        } else if ((e.target.id === "check2") && (e.target.className === "fas fa-check-circle ")) {
+            this.setState({
+                checkbox2click: true,
+                checks: this.state.checks += 1
+        })
+        } else if ((e.target.id === "check2") && (e.target.className === "fas fa-check-circle clicked")) {
+            this.setState({
+                checkbox2click: false,
+                checks: this.state.checks -= 1
+            })
+        } else if ((e.target.id === "check3") && (e.target.className === "fas fa-check-circle ")) {
+            this.setState({
+                checkbox3click: true,
+                checks: this.state.checks += 1
+            })
+        } else if ((e.target.id === "check3") && (e.target.className === "fas fa-check-circle clicked")) {
+            this.setState({
+                checkbox3click: false,
+                checks: this.state.checks -= 1
+            })
+        } else if ((e.target.id === "check4") && (e.target.className === "fas fa-check-circle ")) {
+            this.setState({
+                checkbox4click: true,
+                checks: this.state.checks += 1
+            })
+        } else if ((e.target.id === "check4") && (e.target.className === "fas fa-check-circle clicked")) {
+            this.setState({
+                checkbox4click: false,
+                checks: this.state.checks -= 1
             })
         }
     }
+
     // set it up so that clicking the icon adds 1 to state and then when that 
     // state is 1 the class changes and then if the target is then THAT classname 
     // a click on it lowers back down to 0
@@ -135,7 +178,7 @@ class ProjectForm extends React.Component {
     render () {
         let {title, description, goalFunding, categoryId, locationId, 
             campaignEndDate, open, categoryName, pageIdx, locationName, 
-            checks} = this.state;
+            checks, mediaUrl} = this.state;
 
         
     return (
@@ -207,7 +250,7 @@ class ProjectForm extends React.Component {
                     <h4>And don't worry, you can edit this later, too.</h4>
         
                     <div className="project-title-description-container">
-                        <label>Title
+                        <label><p>Project Title</p>
                             <input className="project-title"
                             type="text"
                             value={title}
@@ -216,7 +259,7 @@ class ProjectForm extends React.Component {
                             />
                         </label>
         
-                        <label>Description
+                        <label><p>Project Description</p>
                             <input className="project-description"
                             type="text"
                             value={description}
@@ -281,14 +324,14 @@ class ProjectForm extends React.Component {
                 </div>
 
                 <div className='additional-info-container'>
-                    <label>Campaign End Date
+                    <label id="end-date">Campaign End Date
                     <input className= 'campaign-end-date'
                         type="date"
                         value={campaignEndDate}
                         onChange={this.handleInput('campaignEndDate')}
                     /></label>
 
-                    <label>Goal Funding
+                    <label>Goal Funding(USD, no commas)
                     <input className='goal-funding'
                         type="text"
                         placeholder="USD"
@@ -298,34 +341,32 @@ class ProjectForm extends React.Component {
     
                 </div>
 
-                <div className="eligibility-container">
-                    <i className="fal fa-check-circle">I am at least 18 years old.</i>
-                    {/* <label> I am at least 18 years old.
-                        <input className={`fal fa-check-circle ${checks === 1 ? "checked" : ""}`}
-                        type="checkbox"/>
-                    </label>
+                <div className="eligibility-container"><p>Eligibility</p>
+                    <i id="check1" className={`fas fa-check-circle ${this.state.checkbox1click === true ? "clicked" : ""}`}
+                        onClick={this.handleCheckbox}>
+                        I am at least 18 years old.</i>
 
-                    <label> I can verify an address and bank account.
-                        <input className={`fal fa-check-circle ${checks === 2 ? "checked" : ""}`}
-                        type="checkbox" />
-                    </label>
+                    <i id="check2" className={`fas fa-check-circle ${this.state.checkbox2click === true ? "clicked" : ""}`}
+                        onClick={this.handleCheckbox}>
+                        I can verify an address and bank account.</i>
 
-                    <label> I can verify a government issued ID.
-                        <input className={`fal fa-check-circle ${checks === 3 ? "checked" : ""}`}
-                        type="checkbox" />
-                    </label>
+                    <i id="check3" className={`fas fa-check-circle ${this.state.checkbox3click === true ? "clicked" : ""}`}
+                        onClick={this.handleCheckbox}>
+                        I can verify a government issued ID.</i>
 
-                    <label> I have a debit and/or credit card.
-                        <input className={`fal fa-check-circle ${checks === 4 ? "checked" : ""}`}
-                        type="checkbox"
-                        onClick={this.handleCheckbox} 
-                        />
-                    </label> */}
+                    <i id="check4" className={`fas fa-check-circle ${this.state.checkbox4click === true ? "clicked" : ""}`}
+                        onClick={this.handleCheckbox}>
+                        I have a debit and/or credit card.</i>
+
                 </div>
 
-                <input type="file"
+                <div className="project-photo">
+                <label>Project Photo<input 
+                id="upload" 
+                type="file"
                 onChange={this.handleFile}
-                />
+                /></label>
+                </div>
 
 
                 <div className="button-container">
@@ -340,7 +381,7 @@ class ProjectForm extends React.Component {
                     </div>    
 
                     <button id="next" 
-                    className={`next-button ${(locationId && campaignEndDate && goalFunding && (checks === 4)) ? "choice" : " "}`}
+                    className={`next-button ${(locationId && campaignEndDate && goalFunding && this.state.mediaUrl && (checks === 4)) ? "choice" : " "}`}
                     onClick={this.handleSubmit}
                     >Create Project</button>
                 </div>

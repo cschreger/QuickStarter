@@ -10,7 +10,7 @@ import Greeting from './session/greeting';
 import ProjectFormContainer from '../components/projects/project_form_container';
 import ProjectShowContainer from '../components/projects/project_show_container';
 import ProjectMainPageContainer from '../components/projects/project_main_page_container'
-
+import RewardCreateContainer from '../components/rewards/reward_create_container'
 // const App = () => (
 class App extends React.Component {
 
@@ -95,8 +95,9 @@ class App extends React.Component {
             <Route exact path="/" component={ProjectMainPageContainer} />
             <AuthRoute path="/signup" component={SignupFormContainer} />
             <AuthRoute path="/login" component={LoginFormContainer} />
-            <Route path="/projects/:projectId" component={ProjectShowContainer} />
+            <Route exact path="/projects/:projectId" component={ProjectShowContainer} />
             <ProtectedRoute path="/start" component={ProjectFormContainer} />
+            <Route path="/projects/:projectId/rewards" component={RewardCreateContainer}/>
             {footer}
         </div>
         )
