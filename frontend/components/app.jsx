@@ -16,6 +16,21 @@ class App extends React.Component {
 
     render() {
 
+        const categoryBar = (
+            <div className='categories-bar-container'>
+                <ul className="categories-list">
+                    <li><a href="/#/categories/1/projects">Arts</a></li>
+                    <li><a href="/#/categories/2/projects">Comics</a></li>
+                    <li><a href="/#/categories/5/projects">Design</a></li>
+                    <li><a href="/#/categories/7/projects">Film &amp; Video</a></li>
+                    <li><a href="/#/categories/8/projects">Food</a></li>
+                    <li><a href="/#/categories/9/projects">Games</a></li>
+                    <li><a href="/#/categories/11/projects">Music</a></li>
+                    <li><a href="/#/categories/13/projects">Publishing</a></li>
+                </ul>
+            </div>
+        )
+
         const navBar = (
         <div>
             {/* <Modal /> */}
@@ -76,6 +91,7 @@ class App extends React.Component {
         return (
         <div>
             {navBar}
+            {categoryBar}
             <Route exact path="/" component={ProjectMainPageContainer} />
             <AuthRoute path="/signup" component={SignupFormContainer} />
             <AuthRoute path="/login" component={LoginFormContainer} />

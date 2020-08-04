@@ -9,7 +9,7 @@ import ProjectShow from './project_show';
 const msp = (state, ownProps) => {
     debugger
     return {project: state.entities.projects[ownProps.match.params.projectId],
-    creator: state.entities.projects.creator,
+    // creator: state.entities.projects.creator,
     currentUser: state.entities.users[state.session.id]}
 };
 

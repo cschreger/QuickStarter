@@ -48,9 +48,13 @@ class ProjectForm extends React.Component {
         if (e.target.id === "next" && this.state.buttonIdx === 2) {
             this.props.createProject(projectData)
                 .then(() => (
-                    this.props.history.push(`/projects`)
+                    this.props.history.push(`/projects/`)
                 ))
         }    
+    }
+
+    handleFile(e) {
+        
     }
 
 

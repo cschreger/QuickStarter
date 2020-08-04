@@ -18,9 +18,10 @@ class ProjectShow extends React.Component {
     }
 
     render () {
+        debugger
         // if proj not defined - return null 
         if (!this.props.project){
-            this.props.fetchProject(this.props.match.params.projectId)
+            return <div></div>
         }
         
         const {project, creator, currentUser} = this.props;
@@ -53,7 +54,7 @@ class ProjectShow extends React.Component {
         }
 
         debugger
-        // let funding = `Backed amt of $${project.goal_funding} goal`
+        let funding = `Backed amt of $${project.goal_funding} goal`
         return (
         <div className='project-show-main'>
 
@@ -67,6 +68,10 @@ class ProjectShow extends React.Component {
                     <div className='project-show-media'>
                         <img src={project.media}/>
                     </div>
+                    <div className='project-show-media-info-footer'>
+                        <i className="far fa-compass">{categories[project.category_id]}</i>  
+                        <i id="loc" className="fas fa-map-marker-alt">{locations[project.location_id]}</i>                 
+                    </div>
                 </div>
             
                 <div className="project-show-details">
@@ -78,10 +83,6 @@ class ProjectShow extends React.Component {
                     </Link>
                 </div>
         
-                <div className='project-show-media-info-footer'>
-                    <i className="far fa-compass">{categories[project.category_id]}</i>  
-                    <i className="fas fa-map-marker-alt">{locations[project.location_id]}</i>                 
-                </div>
                     
             
             

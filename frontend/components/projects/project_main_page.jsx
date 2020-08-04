@@ -8,33 +8,39 @@ class ProjectMainPage extends React.Component {
         super(props);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         debugger
         this.props.fetchProjects();
-        console.log(this.props.projects);
     }
 
     
     
     render () {
-        
-        debugger
-        if (this.props.projects === {}) {
-            return <div></div>;
+
+        if (this.props.projects !== {}) {
+            return <div></div>
         }
+
         const sidebarProjects = Object.values(this.props.projects).slice(13,16);
         const featuredProject = this.props.projects[1];
+
         debugger
+
         return (
             <div className="project-index-container">
             <div className="featured-project-container">
                 <h4>FEATURED PROJECT</h4>
-                <Link to={'/projects'}>
+                {/* <Link to={'/projects'}> */}
+                    <div className='featured-media'>Media</div>
                     {/* <img src={project.media} /> */}
-                    {/* <h3 className="featured-project-title">{featuredProject.title}</h3> */}
-                </Link>
-                {/* <span className="featured-project-description">{featuredProject.description}</span> */}
-                {/* <span className="featured-project-author">By {featuredProject.creator.name} </span> */} 
+                    <h3>Finite: An Urgent Documentary</h3>
+                    <span className="featured-project-description">This documentary will follow the frontline activists
+                        fighting the fossil fuel industry.
+                    </span>
+                    <h3 className="featured-project-title">{featuredProject.title}</h3>
+                    {/* <span className="featured-project-description">{featuredProject.description}</span> */}
+                    {/* <span className="featured-project-author">By {featuredProject.creator.name} </span> */} 
+                {/* </Link> */}
                 {/* link to author page? how real site does// how much "true cloning*/}
             </div>
 
