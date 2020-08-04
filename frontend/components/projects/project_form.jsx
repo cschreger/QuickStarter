@@ -1,4 +1,5 @@
 import React from 'react';
+import project_form_container from './project_form_container';
 
 class ProjectForm extends React.Component {
     constructor(props) {
@@ -24,6 +25,7 @@ class ProjectForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleLocationDropdown = this.handleLocationDropdown.bind(this);
         this.handleCheckbox = this.handleCheckbox.bind(this);
+        this.handleFile = this.handleFile.bind(this);
     };
 
 
@@ -44,6 +46,7 @@ class ProjectForm extends React.Component {
         projectData.append('project[location_id]', this.state.locationId)
         projectData.append('project[goal_funding]', this.state.goalFunding)
         projectData.append('project[campaign_end_date]', this.state.campaignEndDate)
+        projectData.append('project[media]', this.state.mediaFile)
  
         if (e.target.id === "next" && this.state.buttonIdx === 2) {
             this.props.createProject(projectData)
@@ -54,7 +57,17 @@ class ProjectForm extends React.Component {
     }
 
     handleFile(e) {
-        
+        const reader = new FileReader();
+        const file = e.currentTarget.files[0];
+        reader.onloadend = () =>
+            this.setState({ mediaUrl: reader.result, mediaFile: file });
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            this.setState({ mediaUrl: "", mediaFile: null });
+        }
+
     }
 
 
@@ -310,6 +323,9 @@ class ProjectForm extends React.Component {
                     </label> */}
                 </div>
 
+                <input type="file"
+                onChange={this.handleFile}
+                />
 
 
                 <div className="button-container">
