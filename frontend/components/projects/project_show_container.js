@@ -7,7 +7,6 @@ import ProjectShow from './project_show';
 
 
 const msp = (state, ownProps) => {
-    debugger
     return {project: state.entities.projects[ownProps.match.params.projectId],
     // creator: state.entities.users[state.entities.projects[ownProps.match.params.projectId].creator_id],
     currentUser: state.entities.users[state.session.id]}

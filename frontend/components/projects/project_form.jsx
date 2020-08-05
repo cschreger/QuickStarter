@@ -67,7 +67,6 @@ class ProjectForm extends React.Component {
         const file = e.currentTarget.files[0];
         reader.onloadend = () =>
             this.setState({ mediaUrl: reader.result, mediaFile: file });
-        debugger
         if (file) {
             reader.readAsDataURL(file);
         } else {
@@ -125,7 +124,6 @@ class ProjectForm extends React.Component {
 
     handleCheckbox(e) {
         e.preventDefault()
-        debugger
         if  ((e.target.id === "check1") && (e.target.className === "fas fa-check-circle ")) {
             this.setState({
                 checkbox1click: true,

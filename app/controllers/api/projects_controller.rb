@@ -50,7 +50,6 @@ class Api::ProjectsController < ApplicationController
     private
 
     def project_params
-        debugger
         params.require(:project).permit(:title, :description, :goal_funding,
         :category_id, :location_id, :campaign_end_date, :media)
     end

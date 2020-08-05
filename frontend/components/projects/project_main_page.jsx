@@ -10,14 +10,12 @@ class ProjectMainPage extends React.Component {
     }
 
     componentDidMount() {
-        debugger
         this.props.fetchProjects();
     }
 
     
     
     render () {
-        debugger
         if (this.props.projects.length === 0) {
             return <div></div>
         }
@@ -25,7 +23,6 @@ class ProjectMainPage extends React.Component {
         const sidebarProjects = Object.values(this.props.projects).slice(24,27);
         const featuredProject = this.props.projects[13];
 
-        debugger
 
         return (
             

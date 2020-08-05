@@ -9,16 +9,11 @@ class ProjectShow extends React.Component {
 
 
     componentDidMount() {
-        debugger
         this.props.fetchProject(this.props.match.params.projectId)
     }
 
-    componentWillUnmount() {
-        debugger
-    }
 
     render () {
-        debugger
         // if proj not defined - return null 
         if (!this.props.project){
             return <div></div>
@@ -53,7 +48,6 @@ class ProjectShow extends React.Component {
             7: "Antarctica"
         }
 
-        debugger
         let funding = `Backed amt of $${project.goal_funding} goal`
         return (
         <div className='project-show-main'>
