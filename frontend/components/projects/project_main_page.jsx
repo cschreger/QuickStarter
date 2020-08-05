@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-// import CategoryBar from '../components/category/category_bar'
+import CategoryBar from '../category/category_bar'
+import Footer from '../nav_bar/footer'
 
 
 class ProjectMainPage extends React.Component {
@@ -21,12 +22,16 @@ class ProjectMainPage extends React.Component {
             return <div></div>
         }
 
-        const sidebarProjects = Object.values(this.props.projects).slice(13,16);
+        const sidebarProjects = Object.values(this.props.projects).slice(24,27);
         const featuredProject = this.props.projects[13];
 
         debugger
 
         return (
+            
+            
+            <><CategoryBar />
+            <div className="full-page">
             <div className="project-index-container">
             <div className="featured-project-container">
                 <h4>FEATURED PROJECT</h4>
@@ -47,17 +52,18 @@ class ProjectMainPage extends React.Component {
                         <li key={i} className="sidebar-project">
                             <div className="sidebar-image">
                                 <Link to={`projects/${project.id}`}>
-                                    <img src={project.media}/>
+                                    <img id="sidebar-media"src={project.media}/>
                                 </Link>
                             </div>
                             
                             <div className="sidebar-details">
                                 <Link to={`projects/${project.id}`}>{project.title}</Link>
 
-                                <div>
                                     <span className="funded-percentage">Calc Funded</span>
+                                <Link to={`projects/${project.id}`}>
                                     <span className="sidebar-author">By {project.creator_id}</span>
-                                </div>
+                                </Link>
+                         
                             </div>
                         </li>
                     ))}
@@ -66,6 +72,9 @@ class ProjectMainPage extends React.Component {
             </div>
 
         </div>
+        </div>
+        <Footer />
+        </>
         )
     }
 

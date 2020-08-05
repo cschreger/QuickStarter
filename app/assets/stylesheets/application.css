@@ -38,25 +38,37 @@
 
 .top-nav-bar-left {
     text-align: left;
-    margin-left: 25px;
+    margin-left: 20px;
     display: flex;
 }
 
 
 .top-nav-bar-center {
-    padding-right: 70px;
+    padding-right: 55px;
 }
 
 .top-nav-bar-right {
-    margin-right: 35px;
+    margin-right: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.fa-user-circle:hover {
+    cursor: pointer;
 }
 
 #explore {
     margin-right: 17px;
 }
 
+.search {
+    font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #282828;
+}
+
+
 .nav-bar-link {
-    /* background-color: red; */
     font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     text-decoration: none;
@@ -65,7 +77,6 @@
 .main-logo {
     font-family: logo;
     font-size: 25px;
-    /* background-color: blue; */
 }
 
 .main-content {
@@ -83,7 +94,10 @@ div > .login-form, div > .signup-form {
 }
 
 .log-in {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000000;
+    margin-top: 4px;
 }
 
 .login-window, .signup-window {
@@ -282,18 +296,18 @@ a.visited{
   transform: translate(-50%, -50%);
 }
 
-.dropdown-links {
+.log-in {
     padding: 0;
 }
 
-.dropdown-links a{
+.log-in a{
     text-decoration: none;
     color: #282828;
     margin: 0 0 0 15px;
     vertical-align: baseline;
 }
 
-.dropdown-links a:hover{
+.log-in a:hover{
     text-decoration: none;
     color: 	#034752;
     cursor: pointer;
@@ -306,6 +320,30 @@ a.visited{
     color: #282828;
     margin: 0 0 0 15px;
 }
+
+.dropdown-window {
+    display: none;
+    /* z-index: 4; */
+}
+
+.dropdown-container {
+    width: 800px;
+    height: 400px;
+    display: flex;
+    background-color: #FFFFFF;
+}
+
+.dropdown-window.clicked {
+    background-color: #913e3e;
+    display: flex;
+    position: absolute;
+    z-index: 3;
+    top: 100px;
+    left: 600px;
+    border: 1px solid  blueviolet;
+}
+
+.drop
 
 .dropdown-input{
     display:none;
@@ -379,6 +417,7 @@ a.visited{
 
 .project-create-form-container {
     display: flex;
+    position: relative;
     flex-direction: row;
     justify-content: center;
     padding-top: 100px;
@@ -414,7 +453,7 @@ a.visited{
     
 }
 
-.category-dropdown, .location-dropdown {
+.category-dropdown {
     position: relative;
     text-align: left;
     color: #656969;
@@ -424,6 +463,19 @@ a.visited{
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.17);
     padding: 15px 21px;
     margin-bottom: 80px;
+    cursor: pointer;
+}
+
+.location-dropdown {
+    position: relative;
+    text-align: left;
+    color: #656969;
+    font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.17);
+    padding: 15px 21px;
+    margin-bottom: 50px;
     cursor: pointer;
 }
 
@@ -479,25 +531,25 @@ a.visited{
 .category-list-container.open {
     display: block;
     border: 1px solid black;
-    position: relative;
+    position: absolute;
     height: 300px;
     width: 598px;
     z-index: 1;
     overflow-y: scroll;
     background-color: white;
-    bottom: 70px;
+    bottom: -30px;
 }
 
 .location-list-container.open {
     display: block;
     border: 1px solid black;
-    position: relative;
+    position: absolute;
     height: 300px;
     width: 598px;
     z-index: 1;
     overflow-y: scroll;
     background-color: white;
-    bottom: 70px;
+    bottom: -30px;
 }
 
 
@@ -628,6 +680,7 @@ label > p {
 label > input {
     text-align: start;
     overflow-wrap: break-word;
+    margin-left: 5px;
 }
 
 .additional-info-container {
@@ -688,8 +741,9 @@ label > input {
     padding-top: 12px;
 }
 
+
 .project-show-main {
-    background-color: #f7fffa;
+    background-color: #FBFBFA;
 }
 
 .project-show-main-content {
@@ -737,6 +791,11 @@ label > input {
     left: -250px;
 }
 
+.project-show-media > img {
+    height: 100%;
+    width: 100%;
+}
+
 .project-show-media-info-footer {
     position: relative;
     bottom: -15px;
@@ -766,14 +825,12 @@ label > input {
 
 .campaign-end-date {
     font-family: sans-serif;
-    border: 1px solid blueviolet;
 }
 
 .eligibility-container {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    padding-top: 20px;
     padding-bottom: 20px;
 }
 
@@ -834,11 +891,14 @@ label > input {
     padding-left: 60px;
     padding-right: 60px;
     box-sizing: border-box;
+    border-bottom: 0.3px solid #e8e8e8;
+    padding-bottom: 30px;
+
 }
 
 
 .featured-project-container > h4, .recommended-sidebar-container > h4 {
-    font-family:"Maison Neue Book", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
+    font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
     color: #656969;
     font-size: 13px;
     font-weight: 400;
@@ -861,6 +921,40 @@ label > input {
     width: 45%;
     margin-top: 25px;
     margin-left: 60px;
+    font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
+}
+
+.recommended-sidebar-projects {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0px;
+    position: relative;
+    top: -23px;
+}
+
+.sidebar-image {
+    width: 143px;
+    height: 90px;
+}
+
+#sidebar-media {
+    width: 143px;
+    height: 90px;
+    border: 0.1px solid black;
+}
+
+.sidebar-project {
+    display: flex;
+    padding-top: 23px;
+    padding-bottom: 20px;
+    border-bottom: 0.3px solid #e9e9e9;
+}
+
+.sidebar-details {
+    display: flex;
+    flex-direction: column;
+    padding-left: 25px;
+    justify-content: space-between;
 }
 
 h3 {
@@ -882,14 +976,26 @@ div > i {
     font-size: 18px;
 }
 
+.project-photo {
+    padding-bottom: 15px;
+}
+
 .project-photo > label{
     font-family:"Maison Neue Book", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
     padding-bottom: 10px;
     font-size: 16px
 }
 
-.end-date, .goal-funding {
-    display: flex;
+#end-date, .goal-funding {
+    display: grid;
+}
+
+.input.campaign-end-date, .input.goal-funding {
+    padding-top: 5px;
+}
+
+.funded-percentage {
+    color: #037362
 }
 
 
@@ -897,6 +1003,8 @@ div > i {
 
 .rewards-add-container {
     display: flex;
+    position: relative;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -908,5 +1016,53 @@ div > i {
 
 img {
     width: 100%;
-    height: 100%;
+}
+
+.add-reward-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+}
+
+.add-reward-button {
+    pointer-events: none;
+}
+
+.add-reward-button.ready {
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.reward-selections {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+/* Project Index */
+
+.search-categories-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 195px;
+    width: 100%
+}
+
+.explore-search-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-family:"Maison Neue Book", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
+    font-size: 21px;
+    color: #282828;
+}
+
+.explore-category-list-container, .explore-location-list-container, 
+.explore-sort-list-container {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.17);
 }

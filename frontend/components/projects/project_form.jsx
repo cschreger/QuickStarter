@@ -42,7 +42,6 @@ class ProjectForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
         let projectData = new FormData();
 
         projectData.append('project[title]', this.state.title)
@@ -170,19 +169,13 @@ class ProjectForm extends React.Component {
         }
     }
 
-    // set it up so that clicking the icon adds 1 to state and then when that 
-    // state is 1 the class changes and then if the target is then THAT classname 
-    // a click on it lowers back down to 0
-
 
     render () {
         let {title, description, goalFunding, categoryId, locationId, 
             campaignEndDate, open, categoryName, pageIdx, locationName, 
-            checks, mediaUrl} = this.state;
+            checks} = this.state;
 
-        
-    return (
-
+        return (
 
         <div className="project-form-page">
 
@@ -397,12 +390,9 @@ class ProjectForm extends React.Component {
             </form>
         </div >
 
-     
-
         )
     }
     
-
 };
 
 export default ProjectForm;

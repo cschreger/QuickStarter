@@ -5,7 +5,12 @@ class Greeting extends React.Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            clicked: false
+        }
+
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDropdown = this.handleDropdown.bind(this);
     }
 
     handleSubmit(e) {
@@ -14,23 +19,42 @@ class Greeting extends React.Component {
         // this.props.history.push('/');
     }
 
+    handleDropdown(e) {
+        e.preventDefault();
+
+        if (e.target.className === "far fa-user-circle") {
+            this.setState({
+                clicked: !this.state.clicked
+            })
+        }
+    }
+
 render() {
+
+    // const myProjects 
     if (this.props.currentUser) {
         return (
-            <>
-            <div className="dropdown-message">
-                <input className="dropdown-input" 
-                type="submit" 
-                value={this.props.currentUser.name}
-                onClick={() => this.props.openModal('navBarDropdown')}
-                />
+            <div>
+            <i className="far fa-user-circle"
+            onClick={this.handleDropdown}/>
+            <div className={`dropdown-window ${this.state.clicked === true ? "clicked" : ""}`}>
+                <div className='dropdown-container'>
+                    <Link to='/start'>Start a Project</Link>
+                    {/* <ul>View My Projects
+                        {this.props.projects.map((project,i) => (
+                            <li >{project.title}</li>
+                            )
+                        )}
+
+                    </ul> */}
+                    <button onClick={this.handleSubmit}>Log Out!</button>
+                </div>
             </div>
-            <button onClick={this.handleSubmit}>Log Out!</button>
-            </>
+            </div>
         )
     } else {
         return (
-            <div className="dropdown-links">
+            <div className="log-in">
                 <Link to="/login">Log in</Link>
             </div>
         )

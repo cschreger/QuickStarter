@@ -4,6 +4,7 @@ import {log_out} from '../../actions/session_actions';
 import {openModal} from '../../actions/modal_actions';
 
 const msp = state => ({
+    projects: Object.values(state.entities.projects),
     currentUser: state.entities.users[state.session.id]
 });
 
