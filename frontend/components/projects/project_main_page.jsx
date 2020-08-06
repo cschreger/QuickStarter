@@ -20,8 +20,8 @@ class ProjectMainPage extends React.Component {
             return <div></div>
         }
 
-        const sidebarProjects = Object.values(this.props.projects).slice(24,27);
-        const featuredProject = this.props.projects[13];
+        const sidebarProjects = Object.values(this.props.projects).slice(1, 4);
+        const featuredProject = this.props.projects[1];
 
 
         return (
