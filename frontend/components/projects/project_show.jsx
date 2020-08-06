@@ -45,7 +45,7 @@ class ProjectShow extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        debugger
+        
         const backing = {
             backer_id: this.props.currentUser.id, 
             project_id: this.props.project.id,
