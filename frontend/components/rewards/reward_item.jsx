@@ -10,6 +10,7 @@ class RewardItem extends React.Component {
         }
 
         this.handleInput = this.handleInput.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     handleInput(field) {
@@ -17,6 +18,18 @@ class RewardItem extends React.Component {
             this.setState({ [field]: e.currentTarget.value })
         }
     }
+
+
+    handleClick(e) {
+        e.preventDefault();
+
+        this.setState({
+            clicked: !this.state.clicked,
+            numClicks: this.state.numClicks += 1
+        })
+
+    }
+
 
     handleSubmit(e) {
         e.preventDefault();
@@ -65,8 +78,8 @@ class RewardItem extends React.Component {
 
                         <div className={`submit-backing container ${clicked === true ? "clicked" : ""}`}>
                             <button
-                                className={`back-reward ${clicked === true && pledgeAmt ? "ready" : ""}`}
-                                onClick={this.handleSubmit}
+                                className={`back-reward ${clicked === true && pledgeAmt >= reward.pledge_amt ? "ready" : ""}`}
+                                // onClick={this.handleSubmit}
                             >Back This Project</button>
                         </div>
                     </div>

@@ -165,7 +165,7 @@ class ProjectShow extends React.Component {
                                 />
                                 </div>
 
-                                <div className="backing-statement">
+                                <div className="default-backing-statement">
                                     <h3>Back it because you believe in it.</h3>
                                     <h5>Support the project for no reward, just 
                                         because it speaks to you</h5>
@@ -175,7 +175,7 @@ class ProjectShow extends React.Component {
                             <div className={`submit-backing container ${clicked === true ? "clicked" : ""}`}>
                                 <button 
                                 className={`back-reward ${clicked === true && pledgeAmt ? "ready" : ""}`}
-                                onClick={this.handleSubmit}
+                                // onClick={this.handleSubmit}
                                 >Back This Project</button>
                             </div>
                         </li>

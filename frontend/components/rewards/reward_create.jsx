@@ -17,6 +17,11 @@ class RewardCreate extends React.Component {
     }
 
 
+    componentDidMount() {
+        this.props.fetchProject(this.props.match.params.projectId);
+    }
+
+    
     handleInput(field) {
         return (e) => {
             this.setState({ [field]: e.currentTarget.value })
@@ -24,10 +29,12 @@ class RewardCreate extends React.Component {
     }
 
 
+
     handleSubmit(e) {
         e.preventDefault();
         let rewardData = new FormData();
 
+        rewardData.append('reward[project_id]', this.props.project.id)
         rewardData.append('reward[title]', this.state.title)
         rewardData.append('reward[description]', this.state.description)
         rewardData.append('reward[delivery_date]', this.state.deliveryDate)
@@ -38,14 +45,21 @@ class RewardCreate extends React.Component {
         if (e.target.id === "create-reward") {
             this.props.createReward(rewardData)
                 .then(() => {
-                    return this.props.history.push(`/projects/${this.props.project.id}/rewards`)
+                    return this.props.history.last
                 })
         }
+
+        this.setState({
+            title: "",
+            pledgeAmt: "",
+            description: "",
+            deliveryDate: "",
+            shipTo: ""
+        })
     }
 
 
     render() {
-
         let {title, pledgeAmt, description, deliveryDate, shipTo} = this.state;
 
         return (
@@ -60,9 +74,9 @@ class RewardCreate extends React.Component {
                 </div>
                 <div className="reward-form-container">
                 <form className="add-reward-form">
-                    <h4>Add a reward</h4>
+                    {/* <h4>Add a reward</h4>
                     <h6>Offer tangible or intangible things that bring backers 
-                        closer to your project</h6>
+                        closer to your project</h6> */}
 
                     <div className="reward-selections">
                         <label className="reward-title">Title 
@@ -118,8 +132,8 @@ class RewardCreate extends React.Component {
                         Add Reward
                     </button>
 
+                <Link to={`/projects`}><button>I'm all done adding rewards</button></Link>
                 </form>
-                <Link to="/projects"><button>I'm all done adding rewards</button></Link>
                 </div>
             </div>
         )

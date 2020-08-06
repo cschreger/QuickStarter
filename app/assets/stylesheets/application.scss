@@ -895,6 +895,10 @@ label > input {
     font-family:"Maison Neue Book", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
 }
 
+.default-backing-statement {
+    background: linear-gradient(#e66465, #9198e5);
+}
+
 .project-show-details > div {
     padding: 10px
 }
@@ -1182,6 +1186,7 @@ img {
 .reward-form-container {
     display: flex;
     justify-content: flex-start;
+    border: 0.3px solid #282828;
 }
 
 .add-reward-form, .add-reward-form > h4, .add-reward-form > h6, 
@@ -1191,6 +1196,16 @@ img {
     flex-direction: column;
     justify-content: flex-start;
     font-weight: 400;
+}
+
+.add-reward-form input {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-right: 7px;
+}
+
+.add-reward-form button {
+    margin-bottom: 15px;
 }
 
 .add-reward-form > h4 {

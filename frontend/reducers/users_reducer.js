@@ -12,7 +12,6 @@ const usersReducer = (oldState = {}, action) => {
         case RECEIVE_USER:
             return merge({}, oldState, { [action.user.id]: action.user });
         case RECEIVE_ALL_PROJECTS:
-            debugger
             return merge({}, oldState, action.users);
         case RECEIVE_PROJECT: 
             return merge({}, oldState, action.users);

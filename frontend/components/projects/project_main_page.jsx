@@ -17,7 +17,7 @@ class ProjectMainPage extends React.Component {
     
     render () {
         if (this.props.projects.length === 0) {
-            return <div></div>
+            this.props.fetchProjects();
         }
 
         const sidebarProjects = Object.values(this.props.projects).slice(24, 27);

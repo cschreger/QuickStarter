@@ -6,8 +6,7 @@ class Api::RewardsController < ApplicationController
 
     def create
         @reward = Reward.new(reward_params)
-        @reward.project_id = params[:project_id]
-        @project = Project.find_by(id: params[:project_id])
+        @project = Project.find_by(id: params[:reward][:project_id])
 
         if @reward.save
             render 'api/projects/show'
@@ -20,7 +19,7 @@ class Api::RewardsController < ApplicationController
     private
 
     def reward_params
-        params.require(:reward).permit(:title, :description, :delivery_date, 
+        params.require(:reward).permit(:project_id, :title, :description, :delivery_date, 
         :pledge_amt, :ship_to)
     end
 end
