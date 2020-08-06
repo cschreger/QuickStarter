@@ -39,7 +39,11 @@ class ProjectIndex extends React.Component {
 
     render () {
 
+        const projects = this.props.projects
+
         return (
+
+        <div className='full-index-page'>
             <div className="search-categories-container">
                 <div className="explore-search-bar">
                     Show me 
@@ -65,6 +69,22 @@ class ProjectIndex extends React.Component {
                     </div>
                 </div>
             </div>
+            <div className="projects-index-wrapper">
+            <div className="projects-index-container">
+                <div className="projects-amt">Explore {projects.length} projects</div>
+                <ul className="projects-index">  {/*flexwrap */}
+                    {projects.map((project, i) => (
+                        <li key={i}>
+                            <div>{project.title}</div>
+                            <div>{project.creator_id}</div>
+                        </li>
+                    ))}
+
+                </ul>
+            </div>
+            </div>
+        </div>
+
         )
     }
 
