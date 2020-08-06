@@ -53,7 +53,7 @@ class ProjectMainPage extends React.Component {
                             </div>
                             
                             <div className="sidebar-details">
-                                <Link to={`projects/${project.id}`}>{project.title}</Link>
+                                <div id="top-sidebar-title"><Link to={`projects/${project.id}`}>{project.title}</Link></div>
 
                                     <span className="funded-percentage">Calc Funded</span>
                                 <Link to={`projects/${project.id}`}>

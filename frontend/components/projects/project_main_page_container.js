@@ -4,8 +4,10 @@ import ProjectMainPage from './project_main_page';
 
 
 const msp = state => {
+    debugger
     return {
-        projects: Object.values(state.entities.projects)
+        projects: Object.values(state.entities.projects),
+
     }
 }
 
