@@ -9,7 +9,7 @@ class ProjectMainPage extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.props.fetchProjects();
     }
 
@@ -20,15 +20,14 @@ class ProjectMainPage extends React.Component {
             return <div></div>
         }
 
-        const sidebarProjects = Object.values(this.props.projects).slice(1, 4);
-        const featuredProject = this.props.projects[1];
+        const sidebarProjects = Object.values(this.props.projects).slice(24, 27);
+        const featuredProject = this.props.projects[13];
 
 
         return (
             
             
             <><CategoryBar />
-            <div className="full-page">
             <div className="project-index-container">
             <div className="featured-project-container">
                 <h4>FEATURED PROJECT</h4>
@@ -68,8 +67,16 @@ class ProjectMainPage extends React.Component {
 
             </div>
 
-        </div>
-        </div>
+            </div>
+                
+            <div className='discover-footer'>
+                <h2>Discover the best and brightest projects on Quickstarter</h2>
+                <h4>Click below to View All Projects</h4>
+                <Link to="/explore"><button>
+                    Discover Projects
+                </button></Link>
+            </div>
+
         <Footer />
         </>
         )

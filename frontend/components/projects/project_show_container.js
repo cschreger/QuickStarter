@@ -3,12 +3,14 @@ import {fetchProject, updateProject, deleteProject} from '../../actions/project_
 import ProjectShow from './project_show';
 import {createBacking} from '../../actions/backing_actions';
 import {fetchProjectRewards} from '../../actions/reward_actions';
+import {fetchProjectBackings} from '../../actions/project_actions'
 import RewardItem from '../rewards/reward_item';
-
+ 
 
 
 
 const msp = (state, ownProps) => {
+    debugger
     return {project: state.entities.projects[ownProps.match.params.projectId],
     // creator: state.entities.projects[ownProps.match.params.projectId].creator,
     currentUser: state.entities.users[state.session.id],
@@ -22,7 +24,8 @@ const mdp = dispatch => ({
     updateProject: project => dispatch(updateProject(project)),
     deleteProject: projectId => dispatch(deleteProject(projectId)),
     createBacking: backing => dispatch(createBacking(backing)),
-    fetchRewards: projectId => dispatch(fetchProjectRewards(projectId))
+    fetchRewards: projectId => dispatch(fetchProjectRewards(projectId)),
+    // fetchBackings: () => dispatch(fetchProjectBackings())
 });
 
 export default connect(msp, mdp)(ProjectShow);

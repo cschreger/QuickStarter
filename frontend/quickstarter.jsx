@@ -5,9 +5,6 @@ import Root from './components/root'
 import {createReward} from './actions/reward_actions'
 
 document.addEventListener("DOMContentLoaded", () => {
-    // const store = configureStore();
-    // window.getState = store.getState;
-    // window.dispatch = store.dispatch;
     const root = document.getElementById("root")
     
     let store;
@@ -30,5 +27,3 @@ document.addEventListener("DOMContentLoaded", () => {
     ReactDOM.render(<Root store={store} />, root)
 });
 
-// const store = configureStore();
-// window.store = store.getState;

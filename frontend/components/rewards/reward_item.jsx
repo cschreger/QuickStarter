@@ -8,6 +8,8 @@ class RewardItem extends React.Component {
             pledgeAmt: 0,
             clicked: false
         }
+
+        this.handleInput = this.handleInput.bind(this);
     }
 
     handleInput(field) {
@@ -43,22 +45,21 @@ class RewardItem extends React.Component {
                 <div>
                     <div className={`reward ${clicked === true ? "clicked" : ""}`} onClick={this.handleClick}>
                         <div className="pledge-title">
-                            <h2>{reward.title}</h2>
+                            <h2>Pledge {reward.pledge_amt} or more</h2>
                         </div>
 
                         <div className="reward-checkout">
                             <div className="pledge-input">
                                 <input
                                     type="text"
-                                    placeholder="Pledge any amount"
+                                    placeholder={`Pledge ${reward.pledge_amt} or more`}
                                     onChange={this.handleInput('pledgeAmt')}
                                 />
                             </div>
 
                             <div className="backing-statement">
-                                <h3>Back it because you believe in it.</h3>
-                                <h5>Support the project for no reward, just
-                                        because it speaks to you</h5>
+                                <h3>{reward.title}</h3>
+                                <h5>{reward.description}</h5>
                             </div>
                         </div>
 

@@ -13,8 +13,8 @@ const receiveBacking = backing => ({
     backing
 });
 
-export const fetchProjectBackings = backings => dispatch => (
-    BackingUtil.fetchBackings(backings)
+export const fetchProjectBackings = () => dispatch => (
+    BackingUtil.fetchBackings()
         .then(backings => dispatch(receiveProjectBackings(backings)))
 );
 

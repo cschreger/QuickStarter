@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import RewardItem from '../rewards/reward_item';
-// import RewardShowContainer from '../../components/rewards/r'   MAKE OWN COMPONENT to be rendered within?
 
 class ProjectShow extends React.Component {
     constructor(props) {
@@ -20,17 +19,18 @@ class ProjectShow extends React.Component {
 
 
     componentDidMount() {
-        this.props.fetchProject(this.props.match.params.projectId)
-        this.props.fetchRewards(this.props.match.params.projectId)
+        this.props.fetchProject(this.props.match.params.projectId);
+        this.props.fetchRewards(this.props.match.params.projectId);
+        // this.props.fetchBackings();
     }
+
 
     handleScroll(e) {
         e.preventDefault();
         let rewards = document.getElementById("rewards-container")
-        rewards.scrollTo({
-            behavior: 'smooth'
-        })
+        rewards.scrollIntoView({behavior: 'smooth'});
     }
+
 
     handleClick(e) {
         e.preventDefault();
@@ -42,9 +42,10 @@ class ProjectShow extends React.Component {
 
     }
 
+
     handleSubmit(e){
         e.preventDefault();
-        
+        debugger
         const backing = {
             backer_id: this.props.currentUser.id, 
             project_id: this.props.project.id,
@@ -53,12 +54,20 @@ class ProjectShow extends React.Component {
 
         const projectUpdates = {
             id: this.props.project.id,
-            pledged_amt: (this.props.project.pledged_amt + this.state.pledgeAmt)
+            pledged_amt: (this.props.project.pledged_amt + parseInt(this.state.pledgeAmt))
         }
 
         this.props.createBacking(backing)
             .then(() => this.props.updateProject(projectUpdates))
+            .then(() => this.setState({
+                clicked: false,
+                pledgeAmt: 0
+            }))
+        
+        let element = document.getElementById("project")
+        element.scrollIntoView({behavior: 'smooth'});
     }
+
 
     handleInput(field) {
         return (e) => {
@@ -103,9 +112,9 @@ class ProjectShow extends React.Component {
             6: "South America",
             7: "Antarctica"
         }
-        let funding = `Backed amt of $${project.goal_funding} goal`
+
         return (
-        <div className='project-show-main'>
+        <div id="project" className='project-show-main'>
 
             <div className='project-show-main-content'>
                 <div className='project-title-description-container'>
@@ -124,20 +133,19 @@ class ProjectShow extends React.Component {
                 </div>
             
                 <div className="project-show-details">
-                    <div className='pledge-amt'><h2>${funding}</h2></div>
+                    <div className='funded-amt'>${project.pledged_amt}</div>
+                    <div className='pledge-amt'><h2>pledged of ${project.goal_funding} goal</h2></div>
                     <div className='backer-amt'><h2># of Backers</h2></div>
                     <div className='remaining-days-amt'><h2>Calc days to go</h2></div>
-                    <Link to={`/projects/${project.id}/rewards`}>
                     <button 
                     className='backing-button'
                     onClick={this.handleScroll}>Back this project</button>
-                    </Link>
                 </div>
             </div>
 
             <div className='campaign-container'>
                 <div className="campaign-headbar">
-                    Community
+                    <div className="community">Community</div>
                 </div>
 
                 <div className="campaign-story">

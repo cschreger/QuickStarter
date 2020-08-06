@@ -1,4 +1,4 @@
-export const fetchBackings = (backings) => {
+export const fetchBackings = () => {
     return $.ajax({
         method: 'GET',
         url: `api/backings`
@@ -13,4 +13,3 @@ export const createBacking = (backing) => {
     })
 };
 
-// remove {} from backing due to way data is being passed in?
