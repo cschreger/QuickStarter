@@ -38,7 +38,7 @@ render() {
             <i className="far fa-user-circle"
             onClick={this.handleDropdown}/>
             <div className={`dropdown-window ${this.state.clicked === true ? "clicked" : ""}`}>
-                <div className='dropdown-container'>
+                <div onClick={this.handleDropdown} className='dropdown-container'>
                     <Link to='/start'>Start a Project</Link>
                     {/* <ul>View My Projects
                         {this.props.projects.map((project,i) => (

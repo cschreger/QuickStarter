@@ -1,15 +1,68 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-// import RewardShowContainer from '../../components/rewards/r'
+import RewardItem from '../rewards/reward_item';
+// import RewardShowContainer from '../../components/rewards/r'   MAKE OWN COMPONENT to be rendered within?
 
 class ProjectShow extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            clicked: false,
+            numClicks: 0,
+            pledgeAmt: 0
+        }
+
+        this.handleScroll = this.handleScroll.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
 
     componentDidMount() {
         this.props.fetchProject(this.props.match.params.projectId)
+        // this.props.fetchRewards(this.props.match.params.projectId)
+    }
+
+    handleScroll(e) {
+        e.preventDefault();
+        debugger
+        let rewards = document.getElementById("rewards-container")
+        rewards.scrollTo({
+            behavior: 'smooth'
+        })
+    }
+
+    handleClick(e) {
+        e.preventDefault();
+
+        this.setState({
+            clicked: !this.state.clicked,
+            numClicks: this.state.numClicks += 1
+        })
+
+    }
+
+    handleSubmit(e){
+        e.preventDefault();
+
+        const backing = {
+            backer_id: this.props.currentUser.id, 
+            project_id: this.props.project.id,
+            }
+
+        const projectUpdates = {
+            
+        }
+
+        this.props.createBacking(backing)
+            .then(() => this.props.updateProject(projectUpdates))
+    }
+
+    handleInput(field) {
+        return (e) => {
+            this.setState({ [field]: e.currentTarget.value })
+        }
     }
 
 
@@ -19,6 +72,8 @@ class ProjectShow extends React.Component {
             return <div></div>
         }
         
+        const {clicked, pledgeAmt} = this.state
+        const rewards = Object.values(this.props.project.rewards)
         const {project, creator, currentUser} = this.props;
         const categories = {
             1: 'Arts',
@@ -47,7 +102,7 @@ class ProjectShow extends React.Component {
             6: "South America",
             7: "Antarctica"
         }
-
+        debugger
         let funding = `Backed amt of $${project.goal_funding} goal`
         return (
         <div className='project-show-main'>
@@ -73,14 +128,65 @@ class ProjectShow extends React.Component {
                     <div className='backer-amt'><h2># of Backers</h2></div>
                     <div className='remaining-days-amt'><h2>Calc days to go</h2></div>
                     <Link to={`/projects/${project.id}/rewards`}>
-                    <button className='backing-button'>Back this project</button>
+                    <button 
+                    className='backing-button'
+                    onClick={this.handleScroll}>Back this project</button>
                     </Link>
                 </div>
-        
-                    
-            
-            
-            
+            </div>
+
+            <div className='campaign-container'>
+                <div className="campaign-headbar">
+                    Community
+                </div>
+
+                <div className="campaign-story">
+                <div id='rewards-container'>
+                    <ul className="reward-list">
+                        <li className={`default-reward ${clicked === true ? "clicked" : ""}`} onClick={this.handleClick}>
+                            <div className="pledge-title">
+                                <h2>Pledge without a reward</h2>
+                            </div>
+
+                            <div className="reward-checkout">
+                                <div className="pledge-input">
+                                <input 
+                                type="text"
+                                placeholder="Pledge any amount"
+                                onChange={this.handleInput('pledgeAmt')}
+                                />
+                                </div>
+
+                                <div className="backing-statement">
+                                    <h3>Back it because you believe in it.</h3>
+                                    <h5>Support the project for no reward, just 
+                                        because it speaks to you</h5>
+                                </div>
+                            </div>
+
+                            <div className={`submit-backing container ${clicked === true ? "clicked" : ""}`}>
+                                <button 
+                                className={`back-reward ${clicked === true && pledgeAmt ? "ready" : ""}`}
+                                onClick={this.handleSubmit}
+                                >Back This Project</button>
+                            </div>
+                        </li>
+
+                        {rewards.map((reward,i) => (
+                            <li key={i}>
+                                <RewardItem
+                                project={project} 
+                                reward={reward}
+                                currentUser={this.props.currentUser}
+                                createBacking={this.props.createBacking}
+                                updateProject={this.props.updateProject}
+                                />
+
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                </div>
             </div>
         </div>
 

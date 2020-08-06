@@ -20,7 +20,7 @@ class App extends React.Component {
             <Route exact path="/" component={ProjectMainPageContainer} />
             <AuthRoute path="/signup" component={SignupFormContainer} />
             <AuthRoute path="/login" component={LoginFormContainer} />
-            <Route exact path="/projects" component={ProjectIndexContainer} />
+            <Route exact path="/explore" component={ProjectIndexContainer} />
             <Route exact path="/projects/:projectId" component={ProjectShowContainer} />
             <ProtectedRoute path="/start" component={ProjectFormContainer} />
             <Route path="/projects/:projectId/rewards" component={RewardCreateContainer}/>

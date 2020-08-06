@@ -46,17 +46,20 @@ class ProjectIndex extends React.Component {
                     <div className="category-change">
                         <div className="explore-category-list-container">
                             {this.state.category}
+                            <i id="search-arrow" className="fas fa-caret-down"></i>
                         </div>
                     </div>
                     projects on
                     <div className="location-change">
                         <div className="explore-location-list-container">
                             {this.state.location}
+                            <i id="search-arrow" className="fas fa-caret-down"></i>
                         </div>
                     </div>
                     sorted by 
                     <div className="explore-sort">
                         <div className="explore-sort-list-container">
+                            <i id="search-arrow" className="fas fa-caret-down"></i>
                             {this.state.sort}
                         </div>
                     </div>

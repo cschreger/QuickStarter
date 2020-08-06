@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class RewardCreate extends React.Component {
     constructor(props){
@@ -28,9 +29,9 @@ class RewardCreate extends React.Component {
         let rewardData = new FormData();
 
         rewardData.append('reward[title]', this.state.title)
-        rewardData.append('reward[pledge_amt]', this.state.pledgeAmt)
         rewardData.append('reward[description]', this.state.description)
         rewardData.append('reward[delivery_date]', this.state.deliveryDate)
+        rewardData.append('reward[pledge_amt]', this.state.pledgeAmt)
         rewardData.append('reward[ship_to]', this.state.shipTo)
    
 
@@ -57,7 +58,7 @@ class RewardCreate extends React.Component {
                     your project.
                 </h4>
                 </div>
-
+                <div className="reward-form-container">
                 <form className="add-reward-form">
                     <h4>Add a reward</h4>
                     <h6>Offer tangible or intangible things that bring backers 
@@ -89,7 +90,7 @@ class RewardCreate extends React.Component {
                         </label>
 
                         <label className="reward-delivery-date">Delivery Date
-                            <input type="month"
+                            <input type="date"
                                 value={deliveryDate}
                                 // placeholder="Get an early copy - hot off the presses!"
                                 onChange={this.handleInput('deliveryDate')}
@@ -118,6 +119,8 @@ class RewardCreate extends React.Component {
                     </button>
 
                 </form>
+                <Link to="/projects"><button>I'm all done adding rewards</button></Link>
+                </div>
             </div>
         )
     }

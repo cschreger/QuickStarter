@@ -62,7 +62,6 @@ class ProjectForm extends React.Component {
 
 
     handleFile(e) {
-
         const reader = new FileReader();
         const file = e.currentTarget.files[0];
         reader.onloadend = () =>

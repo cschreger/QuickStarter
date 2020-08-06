@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_02_193058) do
+ActiveRecord::Schema.define(version: 2020_08_05_181932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,10 @@ ActiveRecord::Schema.define(version: 2020_08_02_193058) do
     t.index ["backer_id"], name: "index_backings_on_backer_id"
     t.index ["project_id"], name: "index_backings_on_project_id"
     t.index ["reward_id"], name: "index_backings_on_reward_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "category", null: false
   end
 
   create_table "projects", force: :cascade do |t|
