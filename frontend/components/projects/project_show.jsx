@@ -26,7 +26,6 @@ class ProjectShow extends React.Component {
 
     handleScroll(e) {
         e.preventDefault();
-        debugger
         let rewards = document.getElementById("rewards-container")
         rewards.scrollTo({
             behavior: 'smooth'
@@ -104,7 +103,6 @@ class ProjectShow extends React.Component {
             6: "South America",
             7: "Antarctica"
         }
-        debugger
         let funding = `Backed amt of $${project.goal_funding} goal`
         return (
         <div className='project-show-main'>

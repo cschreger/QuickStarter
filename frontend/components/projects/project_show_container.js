@@ -9,7 +9,6 @@ import RewardItem from '../rewards/reward_item';
 
 
 const msp = (state, ownProps) => {
-    debugger
     return {project: state.entities.projects[ownProps.match.params.projectId],
     // creator: state.entities.projects[ownProps.match.params.projectId].creator,
     currentUser: state.entities.users[state.session.id],
