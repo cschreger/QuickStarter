@@ -1162,6 +1162,14 @@ img {
     pointer-events: auto;
 }
 
+.reward-list > li {
+    list-style: none;
+}
+
+.reward {
+    display: block;
+}
+
 /* Project Index */
 
 .search-categories-container {

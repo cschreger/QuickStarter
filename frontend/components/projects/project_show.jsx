@@ -21,7 +21,7 @@ class ProjectShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchProject(this.props.match.params.projectId)
-        // this.props.fetchRewards(this.props.match.params.projectId)
+        this.props.fetchRewards(this.props.match.params.projectId)
     }
 
     handleScroll(e) {
@@ -45,14 +45,16 @@ class ProjectShow extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-
+        
         const backing = {
             backer_id: this.props.currentUser.id, 
             project_id: this.props.project.id,
-            }
+            reward_id: 7
+        }
 
         const projectUpdates = {
-            
+            id: this.props.project.id,
+            pledged_amt: (this.props.project.pledged_amt + this.state.pledgeAmt)
         }
 
         this.props.createBacking(backing)
@@ -67,14 +69,14 @@ class ProjectShow extends React.Component {
 
 
     render () {
-        // if proj not defined - return null 
+
         if (!this.props.project){
             return <div></div>
         }
         
         const {clicked, pledgeAmt} = this.state
-        const rewards = Object.values(this.props.project.rewards)
-        const {project, creator, currentUser} = this.props;
+        // const rewards = this.props.project.rewards
+        const {project, rewards, currentUser} = this.props;
         const categories = {
             1: 'Arts',
             2: 'Comics',

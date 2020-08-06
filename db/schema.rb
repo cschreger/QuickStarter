@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_05_181932) do
+ActiveRecord::Schema.define(version: 2020_08_06_014732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_08_05_181932) do
     t.datetime "campaign_end_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "pledged_amt", default: 0
     t.index ["category_id"], name: "index_projects_on_category_id"
     t.index ["creator_id"], name: "index_projects_on_creator_id"
     t.index ["location_id"], name: "index_projects_on_location_id"

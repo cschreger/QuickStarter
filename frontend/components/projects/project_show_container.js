@@ -3,6 +3,7 @@ import {fetchProject, updateProject, deleteProject} from '../../actions/project_
 import ProjectShow from './project_show';
 import {createBacking} from '../../actions/backing_actions';
 import {fetchProjectRewards} from '../../actions/reward_actions';
+import RewardItem from '../rewards/reward_item';
 
 
 
@@ -12,7 +13,7 @@ const msp = (state, ownProps) => {
     return {project: state.entities.projects[ownProps.match.params.projectId],
     // creator: state.entities.projects[ownProps.match.params.projectId].creator,
     currentUser: state.entities.users[state.session.id],
-    // rewards: Object.values(state.entities.rewards).filter(reward => reward.project.Id === ownProps.match.params.projectId),
+    rewards: Object.values(state.entities.rewards).filter(reward => reward.project_id === parseInt(ownProps.match.params.projectId)),
     // backings = Object.values(state.entities.backings).filter(backing => backing.projectId === ownProps.match.params.projectId)
 }
 };

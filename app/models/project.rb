@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
 
     validates :title, :description, :goal_funding, :creator_id, :category_id,
-    :location_id, :campaign_end_date, presence: true
+    :location_id, :campaign_end_date, :pledged_amt, presence: true
 
     has_one_attached :media
     

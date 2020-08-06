@@ -8,6 +8,7 @@ class Api::RewardsController < ApplicationController
         @reward = Reward.new(reward_params)
         @reward.project_id = params[:project_id]
         @project = Project.find_by(id: params[:project_id])
+
         if @reward.save
             render 'api/projects/show'
         else

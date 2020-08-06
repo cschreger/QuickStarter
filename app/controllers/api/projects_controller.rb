@@ -19,7 +19,7 @@ class Api::ProjectsController < ApplicationController
     def create 
         @project = Project.new(project_params)
         @project.creator_id = current_user.id
-        debugger
+
         if @project.save
             render 'api/projects/show'
         else
@@ -29,12 +29,13 @@ class Api::ProjectsController < ApplicationController
     end
 
     def update
-        @project = Project.find_by(id: params[:id])
-
-        if current_user.id = @project.creator_id
+        @project = Project.find_by(id: params["project"][:id])
+        @project.update(project_update_params)
+        
+        if @project.save
             render :show
         else
-            render json: ["This is not your project to edit!"], status: 404
+            render json: @project.errors.full_messages, status: 404
         end
     end
 
@@ -52,8 +53,11 @@ class Api::ProjectsController < ApplicationController
 
     def project_params
         params.require(:project).permit(:title, :description, :goal_funding,
-        :category_id, :location_id, :campaign_end_date, :media)
+        :category_id, :location_id, :campaign_end_date, :media, :pledged_amt)
     end
 
+    def project_update_params
+        params.require(:project).permit(:pledged_amt)
+    end
             
 end

@@ -37,8 +37,8 @@ class RewardCreate extends React.Component {
 
         if (e.target.id === "create-reward") {
             this.props.createReward(rewardData)
-                .then(action => {
-                    return this.props.history.push(`/projects/${action.project.id}/rewards`)
+                .then(() => {
+                    return this.props.history.push(`/projects/${this.props.project.id}/rewards`)
                 })
         }
     }
