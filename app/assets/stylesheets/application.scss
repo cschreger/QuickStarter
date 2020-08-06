@@ -878,6 +878,7 @@ label > input {
     display: flex;
     align-items: center;
     background-color: white;
+    border-bottom: 0.5px solid #e8e8e8;
 }
 
 .campaign-end-date {
@@ -1072,7 +1073,7 @@ div > i {
 }
 
 .default-reward {
-    border: 3px solid gray;
+    border: 1px solid #DCDEDD;
 }
 
 .default-reward:hover {
@@ -1152,6 +1153,7 @@ img {
 .campaign-story {
     display: flex;
     justify-content: flex-end;
+    background-color: white;
 }
 
 .back-reward {
@@ -1168,6 +1170,8 @@ img {
 
 .reward {
     display: block;
+    border: 1px solid #DCDEDD;
+    margin-top: 20px;
 }
 
 /* Project Index */

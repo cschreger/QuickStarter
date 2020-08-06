@@ -41,7 +41,7 @@ class RewardItem extends React.Component {
         return (
             <div className="reward-items-container">
                 <div>
-                    <li className={`reward ${clicked === true ? "clicked" : ""}`} onClick={this.handleClick}>
+                    <div className={`reward ${clicked === true ? "clicked" : ""}`} onClick={this.handleClick}>
                         <div className="pledge-title">
                             <h2>{reward.title}</h2>
                         </div>
@@ -68,7 +68,7 @@ class RewardItem extends React.Component {
                                 onClick={this.handleSubmit}
                             >Back This Project</button>
                         </div>
-                    </li>
+                    </div>
                 </div>
             </div>
         )
