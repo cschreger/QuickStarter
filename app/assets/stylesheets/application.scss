@@ -367,7 +367,7 @@ a.visited{
 }
 
 .login-errors {
-    background-color: red;
+    background-color: rgb(240, 116, 116);
     font-size: 20px;
     font-family: sans-serif;
     color: white;
@@ -378,6 +378,13 @@ a.visited{
     margin-left: 10px;
     margin-bottom: 10px;
     /* padding: 10px; */
+}
+
+.signup-errors {
+    background-color: rgb(240, 116, 116);
+    font-size: 20px;
+    font-family: sans-serif;
+    color: white;
 }
 
 .modal-dropdown{
@@ -1077,6 +1084,14 @@ label > input {
 
 }
 
+.sidebar-amt {
+    color: #037362;
+}
+
+#top-sidebar-title {
+    margin-bottom: 5px;
+}
+
 
 .featured-project-container > h4, .recommended-sidebar-container > h4 {
     font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
@@ -1344,6 +1359,10 @@ img {
 
 .back-reward.ready {
     pointer-events: auto;
+}
+
+.back-reward.ready:hover {
+    background-color: #025246;
 }
 
 .reward-list {

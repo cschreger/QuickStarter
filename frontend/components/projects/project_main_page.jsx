@@ -14,10 +14,13 @@ class ProjectMainPage extends React.Component {
         this.props.fetchProjects();
     }
 
+    fundedPercentage() {
+        (this.props.projects.pledged_amt / this.props.project.goal_funding) * 100 
+    }
+
     
     
     render () {
-
         if (this.props.projects.length <= 0) {
             return <div></div>
         }
@@ -25,7 +28,8 @@ class ProjectMainPage extends React.Component {
         const sidebarProjects = projects.slice(1, 4);
         const featuredProject = projects[0];
         const freshFaces = projects.slice(projects.length - 5, projects.length - 1)
-
+        
+        debugger
         return (            
             <><CategoryBar />
             <div className="project-index-container">
@@ -55,7 +59,8 @@ class ProjectMainPage extends React.Component {
                             <div className="sidebar-details">
                                 <div id="top-sidebar-title"><Link to={`projects/${project.id}`}>{project.title}</Link></div>
 
-                                    <span className="funded-percentage">Calc Funded</span>
+                                <span className="funded-percentage">
+                                    {Math.floor((project.pledged_amt/project.goal_funding) * 100)}% Funded</span>
                                 <Link to={`projects/${project.id}`}>
                                     <span className="sidebar-author">By {project.creator_id}</span>
                                 </Link>
@@ -81,7 +86,7 @@ class ProjectMainPage extends React.Component {
             <div className="fresh-header-wrapper">
             <div className="fresh-faces-header-container">
                 <h4 className="fresh-faces-header"> Fresh Faces</h4>
-                <h4 className='fresh-faces-subheader'>Experience the newest campaigns Quickstarts has to offer.</h4>
+                <h4 className='fresh-faces-subheader'>Experience the newest campaigns Quickstarter has to offer.</h4>
             </div>
             </div>
             <ul className="fresh-faces-projects">
@@ -97,7 +102,7 @@ class ProjectMainPage extends React.Component {
                             <div id="top-sidebar-title"><Link to={`projects/${project.id}`}>{project.title}</Link></div>
 
                             <Link to={`projects/${project.id}`}>
-                                <span className="sidebar-author">{project.description}</span>
+                                <span className="sidebar-amt">{Math.floor((project.pledged_amt / project.goal_funding) * 100)}% Funded</span>
                             </Link>
 
                         </div>
