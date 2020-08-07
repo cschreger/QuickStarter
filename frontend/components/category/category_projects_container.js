@@ -3,7 +3,6 @@ import CategoryProjects from './category_projects';
 import {fetchProjects} from '../../actions/project_actions';
 
 const msp = (state, ownProps) => {
-    debugger
     return {
     projects: Object.values(state.entities.projects).filter(project => project.category_id === parseInt(ownProps.match.params.categoryId))
     }

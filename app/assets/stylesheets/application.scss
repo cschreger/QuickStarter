@@ -993,6 +993,11 @@ label > input {
     font-weight: 700;
 }
 
+#submit-backing-container {
+    display: flex;
+    justify-content: center;
+}
+
 .backing-button {
     display: block;
     background-color: #009e74;
@@ -1120,6 +1125,9 @@ label > input {
     margin-bottom: 5px;
 }
 
+#top-sidebar-title:hover {
+    color: #037362;
+}
 
 .featured-project-container > h4, .recommended-sidebar-container > h4 {
     font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
@@ -1528,6 +1536,10 @@ div > #search-arrow:before {
 .project-index-item img {
     width: 75px;
     height: 75px;
+}
+
+.project-index-ite > .index-category { 
+    margin-bottom: 20px;
 }
 
 // User Projects

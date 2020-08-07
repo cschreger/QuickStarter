@@ -38,7 +38,7 @@ class RewardItem extends React.Component {
         if (!this.props.currentUser) {
             this.props.history.push("/login")
         }
-        
+
         const backing = {
             backer_id: this.props.currentUser.id,
             project_id: this.props.project.id,
@@ -85,7 +85,7 @@ class RewardItem extends React.Component {
                             </div>
                         </div>
 
-                        <div className='submit-backing container'>
+                        <div id='submit-backing-container'>
                             <button
                                 className={`back-reward ${this.state.pledgeAmt >= reward.pledge_amt ? "ready" : ""}`}
                                 onClick={this.handleSubmit}
