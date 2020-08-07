@@ -36,11 +36,11 @@ render() {
             <i className="far fa-user-circle" onClick={this.handleDropdown}/>
             <div className={`dropdown-window ${this.state.clicked === true ? "clicked" : ""}`}>
                 <div className='dropdown-container'>
-                    <div>Hi, {this.props.currentUser.name}!</div>
+                    <div className='dropdown-hello'>Hi, {this.props.currentUser.name}!</div>
                     <Link to='/start'>Start a Project</Link>
                     <Link to='/projects'>View my Projects</Link>
                     
-                    <button 
+                    <button className='logout-button'
                     onClick={this.handleDropdown} 
                     onClick={this.handleSubmit}>Log Out!</button>
                 </div>

@@ -29,7 +29,6 @@ class ProjectMainPage extends React.Component {
         const featuredProject = projects[0];
         const freshFaces = projects.slice(projects.length - 5, projects.length - 1)
         
-        debugger
         return (            
             <><CategoryBar />
             <div className="project-index-container">
