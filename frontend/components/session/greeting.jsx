@@ -16,7 +16,6 @@ class Greeting extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.logout().then(this.props.closeModal)
-        // this.props.history.push('/');
     }
 
     handleDropdown(e) {

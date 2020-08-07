@@ -1393,11 +1393,21 @@ div > #search-arrow:before {
     display: flex;
     flex-direction: column;
     font-family:"Maison Neue Book", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
-    align-items: flex-start;
+}
+
+.user-projects {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.my-projects-header {
+    display: flex;
+    justify-content: center;
 }
 
 .user-projects li {
-    list-style: none;
+    list-style: disc;
     padding: 7px;
     width: fit-content;
 }
@@ -1408,4 +1418,8 @@ div > #search-arrow:before {
 
 .user-projects li a:hover {
     color: slateblue;
+}
+
+.user-projects button {
+    margin-left: 15px;
 }

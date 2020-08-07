@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {fetchProjects} from '../../actions/project_actions';
+import {fetchProjects, deleteProject} from '../../actions/project_actions';
 import UserProjects from './user_projects'
 
 const msp = state => {
@@ -9,7 +9,8 @@ const msp = state => {
 }
 
 const mdp = dispatch => ({
-    fetchProjects: () => dispatch(fetchProjects())
+    fetchProjects: () => dispatch(fetchProjects()),
+    deleteProject: projectId => dispatch(deleteProject(projectId))
 })
 
 export default connect(msp,mdp)(UserProjects);

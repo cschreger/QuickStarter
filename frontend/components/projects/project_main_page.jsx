@@ -22,8 +22,8 @@ class ProjectMainPage extends React.Component {
             return <div></div>
         }
         const projects = this.props.projects
-        const sidebarProjects = projects.slice(24, 27);
-        const featuredProject = projects[13];
+        const sidebarProjects = projects.slice(1, 4);
+        const featuredProject = projects[0];
         const freshFaces = projects.slice(projects.length - 5, projects.length - 1)
 
         return (            

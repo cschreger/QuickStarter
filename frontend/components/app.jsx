@@ -19,17 +19,15 @@ class App extends React.Component {
         return (
             <div>
             <TopNav />
-            <Switch>
             <Route exact path="/" component={ProjectMainPageContainer} />
             <AuthRoute path="/signup" component={SignupFormContainer} />
             <AuthRoute path="/login" component={LoginFormContainer} />
             <Route exact path="/explore" component={ProjectIndexContainer} />
-            <Route exact path="/projects/:projectId" component={ProjectShowContainer} />
+            <Route path="/projects/:projectId" component={ProjectShowContainer} />
             <ProtectedRoute path="/start" component={ProjectFormContainer} />
             <Route exact path="/projects/:projectId/rewards" component={RewardCreateContainer}/>
             <ProtectedRoute exact path="/projects" component={UserProjectsContainer}/>
             <Route path="/categories/:categoryId/projects" component={CategoryProjectsContainer}/>
-            </Switch>
         </div>
         )
     }

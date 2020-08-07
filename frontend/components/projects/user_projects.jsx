@@ -1,14 +1,22 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import CategoryBar from '../category/category_bar';
 
 class UserProjects extends React.Component {
 
         constructor(props){
             super(props)
+
+            this.handleSubmit = this.handleSubmit.bind(this);
         }
 
         componentDidMount() {
             this.props.fetchProjects();
+        }
+
+        handleSubmit(e) {
+            e.preventDefault();
+            this.props.deleteProject(parseInt(e.target.id));
         }
 
         render() {
@@ -22,15 +30,22 @@ class UserProjects extends React.Component {
                 
             } else {
                 return (
+                <>
+                <CategoryBar />
                 <div className='user-projects-container'>
-                <ul className='user-projects'> My projects:
+                <h2 className="my-projects-header">My Quickstarter Projects:</h2>
+                <ul className='user-projects'> 
                     {userProjects.map((project,i) => (
                         <li key={i}>
                             <Link to={`/projects/${project.id}`}>{project.title}</Link>
+                            <button 
+                            id={`${project.id}`}
+                            onClick={this.handleSubmit}>Delete Project (CANNOT UNDO)</button>
                         </li>
                     ))}
                 </ul>
                 </div>
+                </>
                 )
             }
         }

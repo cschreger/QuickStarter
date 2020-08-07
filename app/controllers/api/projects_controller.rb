@@ -31,7 +31,6 @@ class Api::ProjectsController < ApplicationController
     def update
         @project = Project.find_by(id: params["project"][:id])
         @project.update(project_update_params)
-        debugger
         
         if @project.save
             render :show
@@ -42,7 +41,6 @@ class Api::ProjectsController < ApplicationController
 
     def destroy
         @project = Project.find_by(id: params[:id])
-
         if current_user.id = @project.creator_id
             @project.destroy
         else
