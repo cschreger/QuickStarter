@@ -34,6 +34,11 @@ class RewardItem extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+
+        if (!this.props.currentUser) {
+            this.props.history.push("/login")
+        }
+        
         const backing = {
             backer_id: this.props.currentUser.id,
             project_id: this.props.project.id,

@@ -1,4 +1,8 @@
 import React from 'react';
+import CategoryFooter from './category_footer';
+import Footer from '../nav_bar/footer';
+import CategoryBar from './category_bar';
+import {Link} from 'react-router-dom'
 
 class CategoryProjects extends React.Component {
     constructor(props) {
@@ -29,8 +33,27 @@ class CategoryProjects extends React.Component {
             15: 'Theater'
         }
         
+        const projects = this.props.projects
         return (
-            <div>Hello there</div>
+            <>
+            <CategoryBar />
+            <div className="projects-index-wrapper">
+                <div className="projects-index-container">
+                    <div className="projects-amt">Explore {projects.length} projects</div>
+                    <ul className="projects-index">  {/*flexwrap */}
+                        {projects.map((project, i) => (
+                            <li className='project-index-item' key={i}>
+                                <Link to={`/projects/${project.id}`}><div className='index-title'>{project.title}</div>
+                                    <img src={project.media} /></Link>
+                            </li>
+                        ))}
+
+                    </ul>
+                </div>
+            </div>
+            <CategoryFooter />
+            <Footer />
+            </>
         )
     }
 }
