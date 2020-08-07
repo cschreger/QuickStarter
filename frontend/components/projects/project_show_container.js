@@ -7,12 +7,11 @@ import {fetchProjectBackings} from '../../actions/backing_actions'
 import RewardItem from '../rewards/reward_item';
  
 
-
-
 const msp = (state, ownProps) => {
+
     return {
     project: state.entities.projects[ownProps.match.params.projectId],
-    // creator: state.entities.projects[ownProps.match.params.projectId].creator,
+    creator: state.entities.users[ownProps.match.params.projectId],
     currentUser: state.entities.users[state.session.id],
     rewards: Object.values(state.entities.rewards).filter(reward => reward.project_id === parseInt(ownProps.match.params.projectId)),
     backings: Object.values(state.entities.backings).filter(backing => backing.project_id === parseInt(ownProps.match.params.projectId))

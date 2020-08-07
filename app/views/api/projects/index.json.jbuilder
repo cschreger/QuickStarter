@@ -13,3 +13,9 @@ json.users do
         end
     end
 end
+
+# json.users do
+#     json.creator do
+#         json.extract! @project.creator, :id, :name
+#     end
+# end

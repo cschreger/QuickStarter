@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import RewardItem from '../rewards/reward_item';
+import Footer from '../nav_bar/footer'
 
 class ProjectShow extends React.Component {
     constructor(props) {
@@ -9,7 +10,7 @@ class ProjectShow extends React.Component {
         this.state = {
             clicked: false,
             numClicks: 0,
-            pledgeAmt: "Pledge any amount"
+            pledgeAmt: 0
         }
 
         this.handleScroll = this.handleScroll.bind(this);
@@ -124,7 +125,8 @@ class ProjectShow extends React.Component {
             6: "South America",
             7: "Antarctica"
         }
-
+        
+        
         return (
         <div id="project" className='project-show-main'>
 
@@ -163,7 +165,7 @@ class ProjectShow extends React.Component {
                 <div className="campaign-story">
                 <div id='rewards-container'>
                     <ul className="reward-list">
-                        <li className={`default-reward ${clicked === true ? "clicked" : ""}`} onClick={this.handleClick}>
+                        <li className='default-reward' onClick={this.handleClick}>
                             <div className="pledge-title">
                                 <h2>Pledge without a reward</h2>
                             </div>
@@ -184,7 +186,7 @@ class ProjectShow extends React.Component {
                                 </div>
                             </div>
 
-                            <div className={`submit-backing container ${clicked === true ? "clicked" : ""}`}>
+                            <div className='submit-backing-container'>
                                 <button 
                                 className={`back-reward ${pledgeAmt >= 1 ? "ready" : ""}`}
                                 onClick={this.handleSubmit}
@@ -208,6 +210,7 @@ class ProjectShow extends React.Component {
                 </div>
                 </div>
             </div>
+            <Footer />
         </div>
 
         )

@@ -38,9 +38,24 @@ class ProjectIndex extends React.Component {
     }
 
     render () {
-
+        const categories = {
+            1: 'Arts',
+            2: 'Comics',
+            3: 'Crafts',
+            4: 'Dance',
+            5: 'Design',
+            6: 'Fashion',
+            7: 'Film & Video',
+            8: 'Food',
+            9: 'Games',
+            10: 'Journalism',
+            11: 'Music',
+            12: 'Photography',
+            13: 'Publishing',
+            14: 'Technology',
+            15: 'Theater'
+        }
         const projects = this.props.projects
-
         return (
 
         <div className='full-index-page'>
@@ -76,7 +91,7 @@ class ProjectIndex extends React.Component {
                     {projects.map((project, i) => (
                         <li key={i}>
                             <div>{project.title}</div>
-                            <div>{project.creator_id}</div>
+                            <div>{categories[project.category_id]}</div>
                         </li>
                     ))}
 

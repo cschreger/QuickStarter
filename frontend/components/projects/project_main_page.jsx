@@ -78,9 +78,11 @@ class ProjectMainPage extends React.Component {
             </div>
 
         <div className="fresh-faces-container">
+            <div className="fresh-header-wrapper">
             <div className="fresh-faces-header-container">
                 <h4 className="fresh-faces-header"> Fresh Faces</h4>
                 <h6>Experience the newest campaigns Quickstarts has to offer.</h6>
+            </div>
             </div>
             <ul className="fresh-faces-projects">
                 {freshFaces.map((project, i) => (

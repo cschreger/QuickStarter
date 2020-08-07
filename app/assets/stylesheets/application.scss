@@ -43,7 +43,7 @@ time, mark, audio, video {
 
 @font-face {
     font-family: logo;
-    src: url('Frankfurter_Std_Regular.otf') format('truetype');
+    src: url('Frankfurter_Std_Regular.otf') format('opentype');
 }
 
 
@@ -142,20 +142,28 @@ time, mark, audio, video {
     flex-direction: column;
     position: relative;
     justify-content: center;
+    align-items: center;
     height: 450px;
     font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.fresh-header-wrapper {
+    display: flex;
 }
 
 .fresh-faces-header-container {
     display: flex;
     position: relative;
     flex-direction: column;
-    top: 50px;
-
+    top: 10px;
+    right: 487 px;
+    font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .fresh-faces-header {
     display: flex;
+    font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 0px;
 }
 
 .fresh-faces-projects {
@@ -177,6 +185,7 @@ time, mark, audio, video {
 #fresh-media {
     width: 290px;
     height: 170px;
+    border: 0.1px solid #e8e8e8;
 }
 
 //Login
@@ -827,7 +836,8 @@ label > input {
 .footer-categories {
     display: flex;
     height: 100px;
-    border-top: 0.3px solid #e8e8e8
+    border-top: 0.3px solid #e8e8e8;
+    background-color: white;
 }
 
 .languages, .resources {
@@ -1212,9 +1222,6 @@ div > i {
     cursor: pointer;
 }
 
-.default-reward.clicked {
-    cursor: initial;
-}
 
 .rewards-info-container > h2 {
     padding-top: 40px;

@@ -11,6 +11,7 @@ class RewardItem extends React.Component {
 
         this.handleInput = this.handleInput.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleInput(field) {
@@ -36,16 +37,19 @@ class RewardItem extends React.Component {
         const backing = {
             backer_id: this.props.currentUser.id,
             project_id: this.props.project.id,
-            reward_id: this.props.reward
+            reward_id: this.props.reward.id
         }
 
         const projectUpdates = {
             id: this.props.project.id,
-            pledged_amt: (this.props.project.pledged_amt + this.state.pledgeAmt)
+            pledged_amt: (this.props.project.pledged_amt + (parseInt(this.state.pledgeAmt, 10)))
         }
 
         this.props.createBacking(backing)
             .then(() => this.props.updateProject(projectUpdates))
+
+        let element = document.getElementById("project")
+        element.scrollIntoView({ behavior: 'smooth' });      
     }
 
     render() {
@@ -56,7 +60,7 @@ class RewardItem extends React.Component {
         return (
             <div className="reward-items-container">
                 <div>
-                    <div className={`reward ${clicked === true ? "clicked" : ""}`} onClick={this.handleClick}>
+                    <div className={`reward ${clicked === true ? "clicked" : ""}`}>
                         <div className="pledge-title">
                             <h2>Pledge {reward.pledge_amt} or more</h2>
                         </div>
@@ -78,8 +82,8 @@ class RewardItem extends React.Component {
 
                         <div className={`submit-backing container ${clicked === true ? "clicked" : ""}`}>
                             <button
-                                className={`back-reward ${clicked === true && pledgeAmt >= reward.pledge_amt ? "ready" : ""}`}
-                                // onClick={this.handleSubmit}
+                                className={`back-reward ${this.state.pledgeAmt >= reward.pledge_amt ? "ready" : ""}`}
+                                onClick={this.handleSubmit}
                             >Back This Project</button>
                         </div>
                     </div>

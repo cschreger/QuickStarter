@@ -12,7 +12,6 @@ class Api::BackingsController < ApplicationController
 
     def create
         @backing= Backing.new(backing_params)
-
         if @backing.save
             render :show
         else
