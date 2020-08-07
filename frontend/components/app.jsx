@@ -23,7 +23,7 @@ class App extends React.Component {
             <AuthRoute path="/signup" component={SignupFormContainer} />
             <AuthRoute path="/login" component={LoginFormContainer} />
             <Route exact path="/explore" component={ProjectIndexContainer} />
-            <Route path="/projects/:projectId" component={ProjectShowContainer} />
+            <Route exact path="/projects/:projectId" component={ProjectShowContainer} />
             <ProtectedRoute path="/start" component={ProjectFormContainer} />
             <Route exact path="/projects/:projectId/rewards" component={RewardCreateContainer}/>
             <ProtectedRoute exact path="/projects" component={UserProjectsContainer}/>

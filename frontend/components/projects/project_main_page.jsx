@@ -78,6 +78,10 @@ class ProjectMainPage extends React.Component {
             </div>
 
         <div className="fresh-faces-container">
+            <div className="fresh-faces-header-container">
+                <h4 className="fresh-faces-header"> Fresh Faces</h4>
+                <h6>Experience the newest campaigns Quickstarts has to offer.</h6>
+            </div>
             <ul className="fresh-faces-projects">
                 {freshFaces.map((project, i) => (
                     <li key={i} className="fresh-project">
@@ -90,9 +94,8 @@ class ProjectMainPage extends React.Component {
                         <div className="sidebar-details">
                             <div id="top-sidebar-title"><Link to={`projects/${project.id}`}>{project.title}</Link></div>
 
-                            <span className="funded-percentage">Calc Funded</span>
                             <Link to={`projects/${project.id}`}>
-                                <span className="sidebar-author">By {project.creator_id}</span>
+                                <span className="sidebar-author">{project.description}</span>
                             </Link>
 
                         </div>

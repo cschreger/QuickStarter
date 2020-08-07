@@ -1,5 +1,4 @@
-
-// then categories work and styling fixes/look through tabs
+//backing issue for manually added rewards (local and production)
 //author name instead of id (has to do with state?)
 //edit and delete projects
 //error rendering
@@ -7,6 +6,7 @@
 // remove debuggers and console logs
 // heroku testing
 // heroku font 
+// then categories work and styling fixes/look through tabs
 
 //image and button styling and rewards and index/my projeocts
 

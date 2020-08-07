@@ -71,7 +71,7 @@ class ProjectIndex extends React.Component {
             </div>
             <div className="projects-index-wrapper">
             <div className="projects-index-container">
-                <div className="projects-amt">Explore {projects.length} projects</div>
+                <div className="projects-amt">Explore {projects.length - 1} projects</div>
                 <ul className="projects-index">  {/*flexwrap */}
                     {projects.map((project, i) => (
                         <li key={i}>

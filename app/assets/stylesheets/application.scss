@@ -139,9 +139,23 @@ time, mark, audio, video {
 
 .fresh-faces-container {
     display: flex;
+    flex-direction: column;
     position: relative;
     justify-content: center;
     height: 450px;
+    font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.fresh-faces-header-container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    top: 50px;
+
+}
+
+.fresh-faces-header {
+    display: flex;
 }
 
 .fresh-faces-projects {
@@ -150,14 +164,17 @@ time, mark, audio, video {
     justify-content: center;
     align-items: center;
     list-style: none;
+    padding-left: 0px;
 }
 
 .fresh-project {
     width: 305px;
-    height: 420px;
+    height: 320px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-.fresh-media {
+#fresh-media {
     width: 290px;
     height: 170px;
 }
