@@ -8,7 +8,7 @@
 // heroku testing
 // heroku font 
 
-//image and button styling
+//image and button styling and rewards and index/my projeocts
 
 // my projects display and index display 
 
@@ -17,3 +17,5 @@
 
     // you have already backed this reward
 
+
+//redirecting from reward create if you're not the user
