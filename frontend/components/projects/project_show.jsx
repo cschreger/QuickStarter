@@ -9,18 +9,19 @@ class ProjectShow extends React.Component {
         this.state = {
             clicked: false,
             numClicks: 0,
-            pledgeAmt: 0
+            pledgeAmt: "Pledge any amount"
         }
 
         this.handleScroll = this.handleScroll.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.dateCalc = this.dateCalc.bind(this);
     }
 
 
     componentDidMount() {
-        this.props.fetchProject(this.props.match.params.projectId);
-        this.props.fetchRewards(this.props.match.params.projectId);
+        this.props.fetchProject(this.props.match.params.projectId)
+            .then(() => this.props.fetchRewards(this.props.match.params.projectId));
         // this.props.fetchBackings();
     }
 
@@ -56,16 +57,12 @@ class ProjectShow extends React.Component {
             id: this.props.project.id,
             pledged_amt: (this.props.project.pledged_amt + parseInt(this.state.pledgeAmt))
         }
-
+    
         this.props.createBacking(backing)
             .then(() => this.props.updateProject(projectUpdates))
-            .then(() => this.setState({
-                clicked: false,
-                pledgeAmt: 0
-            }))
         
         let element = document.getElementById("project")
-        element.scrollIntoView({behavior: 'smooth'});
+        element.scrollIntoView({behavior: 'smooth'});        
     }
 
 
@@ -75,16 +72,31 @@ class ProjectShow extends React.Component {
         }
     }
 
+    dateCalc(date) {
+        let current = new Date();
+        let currentYearDays = (current.slice(0, 4)) * 365
+        let currentMonthDays = (current.slice(5, 7)) * 30
+        let currentDays = (current.slice(8, 10))
+
+        let finish = date
+        let yearDays = (parseInt(date.slice(0,4))) * 365
+        let monthDays = (parseInt(date.slice(5,7))) * 30
+        let days = parseInt(date.slice(8,10))
+
+        let currentCalc = currentYearDays + currentMonthDays + currentDays
+        let finishCalc = yearDays + monthDays + days
+
+        return (finishCalc - currentCalc)/1000/60/60/24
+    }
 
     render () {
 
         if (!this.props.project){
             return <div></div>
         }
-        
         const {clicked, pledgeAmt} = this.state
-        // const rewards = this.props.project.rewards
         const {project, rewards, currentUser} = this.props;
+
         const categories = {
             1: 'Arts',
             2: 'Comics',
@@ -135,8 +147,8 @@ class ProjectShow extends React.Component {
                 <div className="project-show-details">
                     <div className='funded-amt'>${project.pledged_amt}</div>
                     <div className='pledge-amt'><h2>pledged of ${project.goal_funding} goal</h2></div>
-                    <div className='backer-amt'><h2># of Backers</h2></div>
-                    <div className='remaining-days-amt'><h2>Calc days to go</h2></div>
+                    <div className='backer-amt'><h2>{this.props.backings.length} Backers</h2></div>
+                    <div className='remaining-days-amt'><h2>{this.props.project.campaign_end_date} days to go</h2></div>
                     <button 
                     className='backing-button'
                     onClick={this.handleScroll}>Back this project</button>
@@ -160,7 +172,7 @@ class ProjectShow extends React.Component {
                                 <div className="pledge-input">
                                 <input 
                                 type="text"
-                                placeholder="Pledge any amount"
+                                placeholder={this.state.pledgeAmt}
                                 onChange={this.handleInput('pledgeAmt')}
                                 />
                                 </div>
@@ -174,8 +186,8 @@ class ProjectShow extends React.Component {
 
                             <div className={`submit-backing container ${clicked === true ? "clicked" : ""}`}>
                                 <button 
-                                className={`back-reward ${clicked === true && pledgeAmt ? "ready" : ""}`}
-                                // onClick={this.handleSubmit}
+                                className={`back-reward ${pledgeAmt >= 1 ? "ready" : ""}`}
+                                onClick={this.handleSubmit}
                                 >Back This Project</button>
                             </div>
                         </li>

@@ -6,7 +6,7 @@ const backingsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     switch(action.type) {
         case RECEIVE_PROJECT_BACKINGS:
-            return merge({}. oldState, {[action.backing.projectId]: action.backings});
+            return merge({}. oldState, {[action.backing.project_Id]: action.backings});
         case RECEIVE_BACKING:
             return merge({}, oldState, action.backing);
         case RECEIVE_PROJECT:

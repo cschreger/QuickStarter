@@ -74,10 +74,7 @@ class RewardCreate extends React.Component {
                 </div>
                 <div className="reward-form-container">
                 <form className="add-reward-form">
-                    {/* <h4>Add a reward</h4>
-                    <h6>Offer tangible or intangible things that bring backers 
-                        closer to your project</h6> */}
-
+                    
                     <div className="reward-selections">
                         <label className="reward-title">Title 
                             <input type="text"
@@ -106,7 +103,6 @@ class RewardCreate extends React.Component {
                         <label className="reward-delivery-date">Delivery Date
                             <input type="date"
                                 value={deliveryDate}
-                                // placeholder="Get an early copy - hot off the presses!"
                                 onChange={this.handleInput('deliveryDate')}
                             />
                         </label>
@@ -127,7 +123,7 @@ class RewardCreate extends React.Component {
 
                     <button 
                     id="create-reward" 
-                    className={`add-reward-button ${title && pledgeAmt && description && deliveryDate && shipTo ? "ready" : ""}`}
+                    className={`add-reward-button ${title && pledgeAmt > 1 && description && deliveryDate && shipTo ? "ready" : ""}`}
                     onClick={this.handleSubmit}>
                         Add Reward
                     </button>

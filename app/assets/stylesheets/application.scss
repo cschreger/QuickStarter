@@ -127,6 +127,44 @@ time, mark, audio, video {
     height: 800px;
 }
 
+.category-footer {
+    border-top: 0.5px solid #e8e8e8;
+}
+
+.categories-bar-container-footer {
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.fresh-faces-container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    height: 450px;
+}
+
+.fresh-faces-projects {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.fresh-project {
+    width: 305px;
+    height: 420px;
+}
+
+.fresh-media {
+    width: 290px;
+    height: 170px;
+}
+
+//Login
+
+
 div > .login-form, div > .signup-form {
     display: flex;
     align-items: center;
@@ -1111,6 +1149,7 @@ div > i {
     flex-direction: column;
     align-items: center;
     border-top: 0.3px solid #e8e8e8;
+    border-bottom: 0.3px solid #e8e8e8;
 }
 
 .discover-footer h2 {
@@ -1128,7 +1167,7 @@ div > i {
 .discover-footer button {
     background: #282828;
     color: white;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     border: none;
     padding: 10px;
     cursor: pointer;
