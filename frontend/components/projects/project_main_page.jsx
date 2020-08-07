@@ -81,7 +81,7 @@ class ProjectMainPage extends React.Component {
             <div className="fresh-header-wrapper">
             <div className="fresh-faces-header-container">
                 <h4 className="fresh-faces-header"> Fresh Faces</h4>
-                <h6>Experience the newest campaigns Quickstarts has to offer.</h6>
+                <h4 className='fresh-faces-subheader'>Experience the newest campaigns Quickstarts has to offer.</h4>
             </div>
             </div>
             <ul className="fresh-faces-projects">

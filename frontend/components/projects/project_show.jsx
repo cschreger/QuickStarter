@@ -126,7 +126,7 @@ class ProjectShow extends React.Component {
             7: "Antarctica"
         }
         
-        
+
         return (
         <div id="project" className='project-show-main'>
 
@@ -159,7 +159,7 @@ class ProjectShow extends React.Component {
 
             <div className='campaign-container'>
                 <div className="campaign-headbar">
-                    <div className="community">Community</div>
+                    <div className="community"></div>
                 </div>
 
                 <div className="campaign-story">
@@ -174,7 +174,7 @@ class ProjectShow extends React.Component {
                                 <div className="pledge-input">
                                 <input 
                                 type="text"
-                                placeholder={this.state.pledgeAmt}
+                                placeholder={`$ ${this.state.pledgeAmt}`}
                                 onChange={this.handleInput('pledgeAmt')}
                                 />
                                 </div>
@@ -195,7 +195,7 @@ class ProjectShow extends React.Component {
                         </li>
 
                         {rewards.map((reward,i) => (
-                            <li key={i}>
+                            <li className='reward-item' key={i}>
                                 <RewardItem
                                 project={project} 
                                 reward={reward}

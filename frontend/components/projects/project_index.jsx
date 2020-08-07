@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CategoryFooter from '../category/category_footer';
+import Footer from '../nav_bar/footer'
 
 class ProjectIndex extends React.Component {
     constructor(props) {
@@ -89,15 +91,18 @@ class ProjectIndex extends React.Component {
                 <div className="projects-amt">Explore {projects.length - 1} projects</div>
                 <ul className="projects-index">  {/*flexwrap */}
                     {projects.map((project, i) => (
-                        <li key={i}>
-                            <div>{project.title}</div>
-                            <div>{categories[project.category_id]}</div>
+                        <li className='project-index-item' key={i}>
+                            <Link to={`/projects/${project.id}`}><div className='index-title'>{project.title}</div>
+                            <img src={project.media}/>
+                            <div className='index-category'>{categories[project.category_id]}</div></Link>
                         </li>
                     ))}
 
                 </ul>
             </div>
             </div>
+            <CategoryFooter/>
+            <Footer/>
         </div>
 
         )

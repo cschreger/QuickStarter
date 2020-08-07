@@ -62,14 +62,14 @@ class RewardItem extends React.Component {
                 <div>
                     <div className={`reward ${clicked === true ? "clicked" : ""}`}>
                         <div className="pledge-title">
-                            <h2>Pledge {reward.pledge_amt} or more</h2>
+                            <h2>Pledge ${reward.pledge_amt} or more</h2>
                         </div>
 
                         <div className="reward-checkout">
                             <div className="pledge-input">
                                 <input
                                     type="text"
-                                    placeholder={`Pledge ${reward.pledge_amt} or more`}
+                                    placeholder={`Pledge $${reward.pledge_amt} or more`}
                                     onChange={this.handleInput('pledgeAmt')}
                                 />
                             </div>
@@ -80,7 +80,7 @@ class RewardItem extends React.Component {
                             </div>
                         </div>
 
-                        <div className={`submit-backing container ${clicked === true ? "clicked" : ""}`}>
+                        <div className='submit-backing container'>
                             <button
                                 className={`back-reward ${this.state.pledgeAmt >= reward.pledge_amt ? "ready" : ""}`}
                                 onClick={this.handleSubmit}
