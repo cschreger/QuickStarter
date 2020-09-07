@@ -25,10 +25,12 @@ Quickstarter implements a RoR backend framework (Rails 5.2.4.3/Ruby 2.5.1) with 
 
 **Technologies/Languages**
 
-* Ruby/Rails
+* Ruby on Rails
+* React/Redux
 * Javascript
 * JQuery/JBuilder
-* React/Redux
 * HTML/CSS
 * AWS
+* Webpack
+* Heroku 
 

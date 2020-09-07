@@ -14,8 +14,10 @@ const Footer = () => {
                 </ul>
 
                 <ul className="resources">Resources
-                    <li id="top-lister"><a href="https://github.com/cschreger">Github</a></li>
-                    <li><a href="https://www.linkedin.com/in/cade-schreger-01048aab/">LinkedIn</a></li>
+                    <li id="top-lister"><a href="http://cade-schreger.io/" target="_blank">Portfolio</a></li>                 
+                    <li><a href="https://github.com/cschreger" target="_blank">Github</a></li>
+                    <li><a href="https://www.linkedin.com/in/cade-schreger-01048aab/" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://angel.co/u/cade-schreger" target="_blank">AngelList</a></li>
                 </ul>
             </div>
 
