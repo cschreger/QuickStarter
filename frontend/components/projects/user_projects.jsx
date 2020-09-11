@@ -19,6 +19,15 @@ class UserProjects extends React.Component {
             this.props.deleteProject(parseInt(e.target.id));
         }
 
+        //modal window pops up for edit project
+        //then work on backing constraints (more that minimum, etc.)
+        handleSubmit2(e) {
+            e.preventDefault();
+            this.props.editProject(parseInt(e.target.id))
+        }
+
+
+
         render() {
             
             const userProjects = this.props.userProjects
@@ -38,9 +47,12 @@ class UserProjects extends React.Component {
                     {userProjects.map((project,i) => (
                         <li key={i}>
                             <Link to={`/projects/${project.id}`}>{project.title}</Link>
+
                             <button 
                             id={`${project.id}`}
                             onClick={this.handleSubmit}>Delete Project (CANNOT UNDO)</button>
+
+                            <button onClick={this.editProject}>Edit Project</button>
                         </li>
                     ))}
                 </ul>

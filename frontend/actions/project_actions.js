@@ -39,7 +39,7 @@ export const updateProject = project => dispatch => (
         .then(project => dispatch(receiveProject(project)))
 );
 
-export const deleteProject = projectId => dispatch =>(
+export const deleteProject = projectId => dispatch => (
     ProjectUtil.deleteProject(projectId)
         .then(() => dispatch(removeProject(projectId)))
 );

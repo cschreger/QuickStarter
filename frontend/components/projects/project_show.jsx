@@ -178,7 +178,7 @@ class ProjectShow extends React.Component {
                                 <div className="pledge-input">
                                 <input 
                                 type="text"
-                                placeholder={`$ ${this.state.pledgeAmt}`}
+                                placeholder={`Pledge $1 or more`}
                                 onChange={this.handleInput('pledgeAmt')}
                                 />
                                 </div>

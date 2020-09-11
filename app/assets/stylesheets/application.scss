@@ -1385,7 +1385,7 @@ img {
 .back-reward {
     pointer-events: none;
     margin: 8px;
-    background-color: #009e74;
+    // background-color: #009e74;
     color: #ffffff;
     font-weight: 200;
     border: none;
@@ -1395,6 +1395,13 @@ img {
 
 .back-reward.ready {
     pointer-events: auto;
+    margin: 8px;
+    background-color: #009e74;
+    color: #ffffff;
+    font-weight: 200;
+    border: none;
+    box-shadow: 0 2px 4px rgba(40,40,40,0.17);
+    font-family:"Maison Neue Book", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
 }
 
 .back-reward.ready:hover {
