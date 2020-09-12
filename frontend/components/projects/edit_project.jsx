@@ -43,7 +43,6 @@ handleSubmit(e) {
         updatedTitle = this.props.project.title
    }
 
-   debugger
    if (this.state.description != false) {
       updatedDescription = this.state.description;
    } else {
@@ -63,10 +62,10 @@ handleSubmit(e) {
        goal_funding: updatedGoalFunding
    }
 
-   debugger
    this.props.updateProject(projectUpdates)
      .then(() => this.props.history.push(`/projects/${this.props.project.id}`))
 }
+
 
 render() {
 
@@ -102,7 +101,7 @@ render() {
                 <label className="edit-funding">Goal Funding
                         <input type="number"
                         value={this.state.goalFunding}
-                        placeholder={project.goal_funding}
+                        placeholder={`$${project.goal_funding}`}
                         onChange={this.handleInput('goalFunding')}
                     />
                 </label>

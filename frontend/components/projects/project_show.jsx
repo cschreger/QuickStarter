@@ -186,7 +186,7 @@ class ProjectShow extends React.Component {
                                 <div className="default-backing-statement">
                                     <h3>Back it because you believe in it.</h3>
                                     <h5>Support the project for no reward, just 
-                                        because it speaks to you</h5>
+                                        because it speaks to you.</h5>
                                 </div>
                             </div>
 

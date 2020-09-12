@@ -16,24 +16,10 @@ class UserProjects extends React.Component {
             this.props.fetchProjects();
         }
 
-        showModal() {
-            this.setState({
-                show: !this.state.show
-            })
-        }
-
         handleSubmit(e) {
             e.preventDefault();
             this.props.deleteProject(parseInt(e.target.id));
         }
-
-        //modal window pops up for edit project
-        //then work on backing constraints (more that minimum, etc.)
-        handleSubmit2(e) {
-            e.preventDefault();
-            this.props.editProject(parseInt(e.target.id))
-        }
-
 
 
         render() {
@@ -51,13 +37,13 @@ class UserProjects extends React.Component {
                 <CategoryBar />
                 <div className='user-projects-container'>
                 <h2 className="my-projects-header">My Quickstarter Projects:</h2>
-                <ul className='user-projects'> 
+                <ul className='user-projects'>
                     {userProjects.map((project,i) => (
                         <li key={i}>
                             <Link to={`/projects/${project.id}`}>{project.title}</Link>
                             <button id={`${project.id}`}
                             onClick={this.handleSubmit}>Delete Project (CANNOT UNDO)</button>
-                            <button onClick={this.showModal}>Edit Project</button>
+                            <Link to={`/projects/${project.id}/edit`}><button> Edit Project</button></Link>
                         </li>
                     ))}
                 </ul>

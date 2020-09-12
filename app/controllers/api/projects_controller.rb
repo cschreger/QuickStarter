@@ -29,7 +29,6 @@ class Api::ProjectsController < ApplicationController
     end
 
     def update
-        debugger
         @project = Project.find_by(id: params["project"][:id])
         @project.update(project_update_params)
         

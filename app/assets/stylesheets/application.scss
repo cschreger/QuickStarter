@@ -1326,15 +1326,13 @@ img {
     display: flex;
     justify-content: flex-start;
     border: 0.3px solid #282828;
-    // width: 20%;
 }
 
-.edit-form-container {
-    width: 25%
-}
 
 .add-reward-form, .add-reward-form > h4, .add-reward-form > h6, 
-.add-reward-form > div, .add-reward-form > div > label, .edit-project-form {
+.add-reward-form > div, .add-reward-form > div > label, .edit-project-form,
+.edit-project-form > h4, .edit-project-form > h6, .edit-project-form > div,
+.edit-project-form > div > label {
     font-family:"Maison Neue Book", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
     display: flex;
     flex-direction: column;
@@ -1342,18 +1340,24 @@ img {
     font-weight: 400;
 }
 
-.add-reward-form input {
+.add-reward-form input, .edit-project-form input {
     margin-top: 5px;
     margin-bottom: 10px;
     margin-right: 7px;
 }
 
-.add-reward-form button {
-    margin-bottom: 15px;
+.add-reward-form button, .edit-project-form button {
+    margin-bottom: 7px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .add-reward-form > h4 {
     margin-bottom: 0;
+}
+
+.edit-title {
+    margin-top: 10px;
 }
 
 .add-reward-form > h6 {
