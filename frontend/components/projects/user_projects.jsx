@@ -6,12 +6,20 @@ class UserProjects extends React.Component {
 
         constructor(props){
             super(props)
-
+            this.state ={
+              show: false
+            }
             this.handleSubmit = this.handleSubmit.bind(this);
         }
 
         componentDidMount() {
             this.props.fetchProjects();
+        }
+
+        showModal() {
+            this.setState({
+                show: !this.state.show
+            })
         }
 
         handleSubmit(e) {
@@ -47,12 +55,9 @@ class UserProjects extends React.Component {
                     {userProjects.map((project,i) => (
                         <li key={i}>
                             <Link to={`/projects/${project.id}`}>{project.title}</Link>
-
-                            <button 
-                            id={`${project.id}`}
+                            <button id={`${project.id}`}
                             onClick={this.handleSubmit}>Delete Project (CANNOT UNDO)</button>
-
-                            <button onClick={this.editProject}>Edit Project</button>
+                            <button onClick={this.showModal}>Edit Project</button>
                         </li>
                     ))}
                 </ul>

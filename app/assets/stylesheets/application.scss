@@ -1271,7 +1271,7 @@ div > i {
 }
 /* Rewards */
 
-.rewards-add-container {
+.rewards-add-container, .edit-main-container {
     display: flex;
     position: relative;
     flex-direction: column;
@@ -1280,7 +1280,7 @@ div > i {
     text-align: center;
 }
 
-.rewards-info-container {
+.rewards-info-container, .edit-info-container {
     width: 825px;
 }
 
@@ -1296,7 +1296,7 @@ div > i {
 }
 
 
-.rewards-info-container > h2 {
+.rewards-info-container > h2, .edit-info-container > h2  {
     padding-top: 40px;
     text-align: center;
     font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1305,7 +1305,7 @@ div > i {
     color: #282828;
 }
 
-.rewards-info-container > h4 {
+.rewards-info-container > h4, .edit-info-container > h4 {
     text-align: center;
     font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
@@ -1314,19 +1314,27 @@ div > i {
     padding-bottom: 10px;
 }
 
+.edit-info-container > h4 {
+    margin-top: 0px;
+}
 
 img {
     width: 100%;
 }
 
-.reward-form-container {
+.reward-form-container, .edit-form-container {
     display: flex;
     justify-content: flex-start;
     border: 0.3px solid #282828;
+    // width: 20%;
+}
+
+.edit-form-container {
+    width: 25%
 }
 
 .add-reward-form, .add-reward-form > h4, .add-reward-form > h6, 
-.add-reward-form > div, .add-reward-form > div > label {
+.add-reward-form > div, .add-reward-form > div > label, .edit-project-form {
     font-family:"Maison Neue Book", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
     display: flex;
     flex-direction: column;
@@ -1364,7 +1372,7 @@ img {
     pointer-events: auto;
 }
 
-.reward-selections {
+.reward-selections, .edit-selections {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

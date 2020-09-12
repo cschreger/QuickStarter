@@ -11,6 +11,7 @@ import RewardCreateContainer from '../components/rewards/reward_create_container
 import TopNav from '../components/nav_bar/top_nav';
 import UserProjectsContainer from './projects/user_projects_container';
 import CategoryProjectsContainer from './category/category_projects_container';
+import EditProjectContainer from './projects/edit_project_container';
 
 class App extends React.Component {
 
@@ -28,6 +29,7 @@ class App extends React.Component {
             <Route exact path="/projects/:projectId/rewards" component={RewardCreateContainer}/>
             <ProtectedRoute exact path="/projects" component={UserProjectsContainer}/>
             <Route path="/categories/:categoryId/projects" component={CategoryProjectsContainer}/>
+            <Route path="/projects/:projectId/edit" component={EditProjectContainer}/>
         </div>
         )
     }

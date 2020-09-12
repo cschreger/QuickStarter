@@ -54,7 +54,11 @@ class RewardItem extends React.Component {
             .then(() => this.props.updateProject(projectUpdates))
 
         let element = document.getElementById("project")
-        element.scrollIntoView({ behavior: 'smooth' });      
+        element.scrollIntoView({ behavior: 'smooth' });
+        
+        this.setState({
+            pledgeAmt: 0
+        })
     }
 
     render() {

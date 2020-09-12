@@ -11,7 +11,7 @@ const msp = state => {
 const mdp = dispatch => ({
     fetchProjects: () => dispatch(fetchProjects()),
     deleteProject: projectId => dispatch(deleteProject(projectId)),
-    editProject: projectId => dispatch(editProject(projectId))
+    // editProject: projectId => dispatch(editProject(projectId))
 })
 
 export default connect(msp,mdp)(UserProjects);

@@ -29,6 +29,7 @@ class Api::ProjectsController < ApplicationController
     end
 
     def update
+        debugger
         @project = Project.find_by(id: params["project"][:id])
         @project.update(project_update_params)
         
@@ -56,7 +57,8 @@ class Api::ProjectsController < ApplicationController
     end
 
     def project_update_params
-        params.require(:project).permit(:pledged_amt)
+        params.require(:project).permit(:pledged_amt, :id, :title, :description,
+        :goal_funding)
     end
             
 end

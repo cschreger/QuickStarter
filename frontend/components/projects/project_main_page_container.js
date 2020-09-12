@@ -6,8 +6,6 @@ import ProjectMainPage from './project_main_page';
 const msp = state => {
     return {
         projects: Object.values(state.entities.projects),
-        
-
     }
 }
 
