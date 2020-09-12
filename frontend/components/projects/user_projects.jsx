@@ -23,7 +23,6 @@ class UserProjects extends React.Component {
 
 
         render() {
-            
             const userProjects = this.props.userProjects
 
             if(userProjects.length === 0) {

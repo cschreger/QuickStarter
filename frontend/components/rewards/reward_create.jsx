@@ -60,6 +60,10 @@ class RewardCreate extends React.Component {
 
 
     render() {
+        if (this.props.project.creator_id != this.props.currentUser.id) {
+          this.props.history.push("/");
+        }
+
         let {title, pledgeAmt, description, deliveryDate, shipTo} = this.state;
 
         return (

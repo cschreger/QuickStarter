@@ -16,6 +16,7 @@ constructor(props){
 }
 
 componentDidMount() {
+    debugger
     this.props.fetchProject(this.props.match.params.projectId)
 }
 
@@ -68,10 +69,15 @@ handleSubmit(e) {
 
 
 render() {
-
+    debugger
     if (!this.props.project) {
         return <div></div>
     }
+
+    if (this.props.project.creator_id != this.props.currentUser.id) {
+        this.props.history.push('/')
+    }
+
     const { project, currentUser } = this.props;
 
 

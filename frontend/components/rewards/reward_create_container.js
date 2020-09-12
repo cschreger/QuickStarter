@@ -5,7 +5,9 @@ import {fetchProject} from '../../actions/project_actions';
 
 const msp = (state, ownProps) => {
     return {
-    project: state.entities.projects[ownProps.match.params.projectId]
+    project: state.entities.projects[ownProps.match.params.projectId],
+    currentUser: state.entities.users[state.session.id]
+
 }}
 
 const mdp = dispatch => ({
