@@ -32,14 +32,38 @@ handleSubmit(e) {
        this.props.history.push("/login")
    }
 
+   let updatedTitle = this.props.project.title 
+   let updatedDescription = this.props.project.description
+   let updatedGoalFunding = this.props.project.goal_funding
+   
+
+   if (this.state.title != false) {
+        updatedTitle = this.state.title
+   } else {
+        updatedTitle = this.props.project.title
+   }
+
+   debugger
+   if (this.state.description != false) {
+      updatedDescription = this.state.description;
+   } else {
+      updatedDescription = this.props.project.description;
+   }
+
+   if (this.state.goalFunding != false) {
+      updatedGoalFunding = this.state.goalFunding;
+   } else {
+      updatedGoalFunding = this.props.project.goal_funding;
+   }
 
    const projectUpdates = {
        id: this.props.project.id,
-       title: this.state.title,
-       description: this.state.description,
-       goal_funding: this.state.goal_funding
+       title: updatedTitle,
+       description: updatedDescription,
+       goal_funding: updatedGoalFunding
    }
 
+   debugger
    this.props.updateProject(projectUpdates)
      .then(() => this.props.history.push(`/projects/${this.props.project.id}`))
 }
@@ -56,8 +80,10 @@ render() {
         <div className="edit-main-container">
         <div className="edit-info-container">
             <h2>Edit your project</h2>
-            <h4>We understand...ideas change. <br></br>Make updates below to your campaign
-                title, description, or goal funding amount.
+            <h4>We understand...ideas change. Make updates below to your campaign
+                title, description, or goal funding amount. 
+                <br></br><br></br>
+                Any fields that are not updated will retain the campaign's previous information.
             </h4>
         </div>
 
