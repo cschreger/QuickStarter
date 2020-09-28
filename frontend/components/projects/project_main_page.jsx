@@ -40,7 +40,7 @@ class ProjectMainPage extends React.Component {
                     <span className="featured-project-description">{featuredProject.description}</span>
                     <br></br>
                     <br></br>
-                    <span className="featured-project-author">By {featuredProject.creator_id} </span> 
+                    <span className="featured-project-author">By {featuredProject.creatorName} </span> 
                 </Link>
             </div>
 
@@ -61,7 +61,7 @@ class ProjectMainPage extends React.Component {
                                 <span className="funded-percentage">
                                     {Math.floor((project.pledged_amt/project.goal_funding) * 100)}% Funded</span>
                                 <Link to={`projects/${project.id}`}>
-                                    <span className="sidebar-author">By {project.creator_id}</span>
+                                    <span className="sidebar-author">By {project.creatorName}</span>
                                 </Link>
                          
                             </div>

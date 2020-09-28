@@ -19,10 +19,11 @@ const removeProject = projectId => ({
     projectId
 });
 
-export const fetchProjects = () => dispatch => (
+export const fetchProjects = () => dispatch => {
+    return (
     ProjectUtil.fetchProjects()
-        .then(projects => dispatch(receiveAllProjects(projects)))
-);
+        .then(projects => dispatch(receiveAllProjects(projects))))
+};
 
 export const fetchProject = projectId => dispatch => (
     ProjectUtil.fetchProject(projectId)

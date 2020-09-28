@@ -8,6 +8,7 @@ const projectsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     switch(action.type) {
         case RECEIVE_ALL_PROJECTS:
+            debugger
             return merge({}, oldState, action.projects);
         case RECEIVE_PROJECT:
             return merge({}, oldState, {[action.project.id]: action.project});

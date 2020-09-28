@@ -2,10 +2,21 @@ import { connect } from 'react-redux';
 import { fetchProjects } from '../../actions/project_actions';
 import ProjectMainPage from './project_main_page';
 
+const projectsWithAuthors = (state) => {
+  return Object.values(state.entities.projects).map((project) => {
+      let creator = state.entities.projects["users"][project.creator_id]
+      debugger
+      if (project.id !== undefined){
+      return Object.assign({}, project, {creatorName: creator.name})
+      }
+  })
+};
 
 const msp = state => {
+    debugger
     return {
-        projects: Object.values(state.entities.projects),
+        projects: projectsWithAuthors(state)
+        // projectsWithAuthors: projectsWithAuthors(state)
     }
 }
 
