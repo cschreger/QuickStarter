@@ -17,10 +17,11 @@ Quickstarter implements a RoR backend framework (Rails 5.2.4.3/Ruby 2.5.1) with 
 
 **Highlighted Features**
 
-
-* ![Multi_page_form](https://media.giphy.com/media/0tmDsx4V4Xa6vg6tFE/giphy.gif)
-
-* ![Live_Backing](https://media.giphy.com/media/8D21HOiRHERFLJg5ex/giphy.gif)
+* Multi-page creation form
+ ![](https://media.giphy.com/media/0tmDsx4V4Xa6vg6tFE/giphy.gif)
+<br><br>
+* Live project-backing feature
+ ![](https://media.giphy.com/media/8D21HOiRHERFLJg5ex/giphy.gif)
 
 **Technologies/Languages**
 
