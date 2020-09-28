@@ -23,7 +23,6 @@ class RewardItem extends React.Component {
 
     handleClick(e) {
         e.preventDefault();
-        debugger
 
         this.setState({
             clicked: !this.state.clicked,

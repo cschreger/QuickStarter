@@ -18,10 +18,9 @@ Quickstarter implements a RoR backend framework (Rails 5.2.4.3/Ruby 2.5.1) with 
 **Highlighted Features**
 
 
-* [![Multi_page_form](http://img.youtube.com/vi/zicOL_pM_C4.jpg)](https://youtu.be/zicOL_pM_C4 "Multi-page Form")
- Multi-page campaign form that persists state across pages (CSS styling within a single component)
+* ![Multi_page_form](https://media.giphy.com/media/0tmDsx4V4Xa6vg6tFE/giphy.gif)
 
-* [![Live_Backing](http://img.youtube.com/vi/N2fahR5rnTg/0.jpg)](https://youtu.be/N2fahR5rnTg "Live Backing")
+* ![Live_Backing](https://media.giphy.com/media/8D21HOiRHERFLJg5ex/giphy.gif)
 
 **Technologies/Languages**
 
