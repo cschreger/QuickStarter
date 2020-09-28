@@ -23,10 +23,11 @@ class RewardItem extends React.Component {
 
     handleClick(e) {
         e.preventDefault();
+        debugger
 
         this.setState({
             clicked: !this.state.clicked,
-            numClicks: this.state.numClicks += 1
+            pledgeAmt: reward.pledge_amt
         })
 
     }
@@ -67,8 +68,8 @@ class RewardItem extends React.Component {
         let clicked = this.state.clicked
 
         return (
-            <div className="reward-items-container">
-                <div>
+            <div onClick= {this.handleClick} className="reward-items-container">
+                <div className="reward-color">
                     <div className={`reward ${clicked === true ? "clicked" : ""}`}>
                         <div className="pledge-title">
                             <h2>Pledge ${reward.pledge_amt} or more</h2>

@@ -132,7 +132,7 @@ class RewardCreate extends React.Component {
                         Add Reward
                     </button>
 
-                <Link to={`/projects`}><button>I'm all done adding rewards</button></Link>
+                <Link to={`/projects/${this.props.match.params.projectId}`}><button>I'm all done adding rewards</button></Link>
                 </form>
                 </div>
             </div>
