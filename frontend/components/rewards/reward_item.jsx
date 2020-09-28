@@ -5,7 +5,7 @@ class RewardItem extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            pledgeAmt: 0,
+            pledgeAmt: `Pledge $${this.props.reward.pledge_amt} or more`,
             clicked: false
         }
 
@@ -27,7 +27,7 @@ class RewardItem extends React.Component {
 
         this.setState({
             clicked: !this.state.clicked,
-            pledgeAmt: reward.pledge_amt
+            pledgeAmt: this.props.reward.pledge_amt
         })
 
     }
@@ -58,8 +58,8 @@ class RewardItem extends React.Component {
         element.scrollIntoView({ behavior: 'smooth' });
         
         this.setState({
-            pledgeAmt: 0
-        })
+          pledgeAmt: `Pledge $${this.props.reward.pledge_amt} or more`
+        });
     }
 
     render() {
@@ -68,7 +68,7 @@ class RewardItem extends React.Component {
         let clicked = this.state.clicked
 
         return (
-            <div onClick= {this.handleClick} className="reward-items-container">
+            <div className="reward-items-container">
                 <div className="reward-color">
                     <div className={`reward ${clicked === true ? "clicked" : ""}`}>
                         <div className="pledge-title">
@@ -77,10 +77,10 @@ class RewardItem extends React.Component {
 
                         <div className="reward-checkout">
                             <div className="pledge-input">
-                                <input
+                                <input onClick={this.handleClick}
                                     type="text"
-                                    placeholder={`Pledge $${reward.pledge_amt} or more`}
                                     onChange={this.handleInput('pledgeAmt')}
+                                    value={this.state.pledgeAmt}
                                 />
                             </div>
 

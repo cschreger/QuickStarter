@@ -9,8 +9,7 @@ class ProjectShow extends React.Component {
 
         this.state = {
             clicked: false,
-            numClicks: 0,
-            pledgeAmt: 0
+            pledgeAmt: `Pledge $1 or more`
         }
 
         this.handleScroll = this.handleScroll.bind(this);
@@ -39,7 +38,7 @@ class ProjectShow extends React.Component {
 
         this.setState({
             clicked: !this.state.clicked,
-            numClicks: this.state.numClicks += 1
+            pledgeAmt: 1
         })
 
     }
@@ -62,12 +61,17 @@ class ProjectShow extends React.Component {
             id: this.props.project.id,
             pledged_amt: (this.props.project.pledged_amt + parseInt(this.state.pledgeAmt))
         }
-    
+        
+        this.setState({
+            pledgeAmt: `Pledge $1 or more`
+        })
+        
         this.props.createBacking(backing)
             .then(() => this.props.updateProject(projectUpdates))
         
         let element = document.getElementById("project")
-        element.scrollIntoView({behavior: 'smooth'});        
+        element.scrollIntoView({behavior: 'smooth'});      
+        
     }
 
 
@@ -178,8 +182,9 @@ class ProjectShow extends React.Component {
                                 <div className="pledge-input">
                                 <input 
                                 type="text"
-                                placeholder={`Pledge $1 or more`}
+                                // placeholder={`Pledge $1 or more`}
                                 onChange={this.handleInput('pledgeAmt')}
+                                value={this.state.pledgeAmt}
                                 />
                                 </div>
 
