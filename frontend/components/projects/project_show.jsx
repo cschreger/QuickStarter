@@ -82,20 +82,10 @@ class ProjectShow extends React.Component {
     }
 
     dateCalc(date) {
-        let current = new Date();
-        let currentYearDays = (current.slice(0, 4)) * 365
-        let currentMonthDays = (current.slice(5, 7)) * 30
-        let currentDays = (current.slice(8, 10))
+        let current = new Date().getTime()
+        let campaign = Date.parse(`${date}`)
 
-        let finish = date
-        let yearDays = (parseInt(date.slice(0,4))) * 365
-        let monthDays = (parseInt(date.slice(5,7))) * 30
-        let days = parseInt(date.slice(8,10))
-
-        let currentCalc = currentYearDays + currentMonthDays + currentDays
-        let finishCalc = yearDays + monthDays + days
-
-        return (finishCalc - currentCalc)/1000/60/60/24
+        return Math.round((campaign - current)/(1000*3600*24))
     }
 
     render () {
@@ -158,7 +148,7 @@ class ProjectShow extends React.Component {
                     <div className='funded-amt'>${project.pledged_amt}</div>
                     <div className='pledge-amt'><h2>pledged of ${project.goal_funding} goal</h2></div>
                     <div className='backer-amt'><h2>{this.props.backings.length} Backers</h2></div>
-                    <div className='remaining-days-amt'><h2>{this.props.project.campaign_end_date} days to go</h2></div>
+                    <div className='remaining-days-amt'><h2>{this.dateCalc(project.campaign_end_date)} days to go</h2></div>
                     <button 
                     className='backing-button'
                     onClick={this.handleScroll}>Back this project</button>
