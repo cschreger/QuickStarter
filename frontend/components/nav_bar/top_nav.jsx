@@ -21,7 +21,7 @@ const TopNav = () => {
             <nav className="top-nav-bar-center">
                 <div className="main-logo">
                     <Link to={'/'}>QuickStarter</Link>
-                        <h5 id="blm"><a href="https://blacklivesmatter.com/defundthepolice/">#BlackLivesMatter</a></h5>
+                        <h5 id="blm"><a href="https://www.kickstarter.com/articles/commitments-support-black-lives-creative-work">#BlackLivesMatter</a></h5>
                 </div>
             </nav>
 
